@@ -1,0 +1,24 @@
+1.Cabeçalho
+    - Nome da Página
+    - Menu
+
+2. Página dos alimentos
+    - Informações dos alimentos
+    - Input de quantidade dos alimentos
+    - Botão de visualização
+    - Popup com Informações
+        * Gráfico com kcal por alimentos
+        * Gráfico mostrando a quantidade de nutrientes nos alimentos
+
+3. Página Refeições do dia
+     - Botão pra salvar a refeição
+     - Tabela mostrando a quantidade de nutrientes por refeição
+
+4. Página de Meta Diária
+    - Input da meta de quantidade de nutrientes diária
+    - Grafico da meta diária
+    - Botão pra salvar o dia na semana e adicionar ao Gráfico
+
+5. Rodapé
+    - Nomes e matrícula
+
