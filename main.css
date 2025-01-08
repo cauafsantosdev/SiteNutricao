@@ -1,16 +1,29 @@
-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+html, body { /* Evita o efeito de scroll */
+    overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+    height: 100%; 
 }
 
 main{
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f1f1f1;
+    background-color: white;
+}
+
+.card{
+    margin: 25px 0px;
+    width: 300px;
+}
+
+.card-title{
+    text-align: center;
+    margin: 0;
+}
+
+.card-text{
+    text-align: center;
+    margin: 0;
 }

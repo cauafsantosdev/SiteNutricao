@@ -11,7 +11,9 @@ const alimentos = [
         "Potássio (mg)":35.0,
         "Cálcio (mg)":10,
         "Vitaminas Principais":"-",
-        " Calorias":130
+        "Calorias":130,
+        "Imagem":"Arroz.jpg",
+        "ID":"arroz"
     },
     {
         "Alimento":"Feijão",
@@ -24,7 +26,9 @@ const alimentos = [
         "Potássio (mg)":1.5,
         "Cálcio (mg)":50,
         "Vitaminas Principais":"B9",
-        " Calorias":132
+        "Calorias":132,
+        "Imagem":"Feijão.jpg",
+        "ID":"feijao"
     },
     {
         "Alimento":"Pão francês",
@@ -37,7 +41,9 @@ const alimentos = [
         "Potássio (mg)":120.0,
         "Cálcio (mg)":20,
         "Vitaminas Principais":"-",
-        " Calorias":270
+        "Calorias":270,
+        "Imagem":"Pão.jpg",
+        "ID":"pao"
     },
     {
         "Alimento":"Laranja",
@@ -50,7 +56,9 @@ const alimentos = [
         "Potássio (mg)":180.0,
         "Cálcio (mg)":40,
         "Vitaminas Principais":"C, A",
-        " Calorias":47
+        "Calorias":47,
+        "Imagem":"Laranja.jpg",
+        "ID":"laranja"
     },
     {
         "Alimento":"Carne bovina",
@@ -63,7 +71,9 @@ const alimentos = [
         "Potássio (mg)":350.0,
         "Cálcio (mg)":15,
         "Vitaminas Principais":"-",
-        " Calorias":250
+        "Calorias":250,
+        "Imagem":"Carne.jpg",
+        "ID":"carne"
     },
     {
         "Alimento":"Carne de frango",
@@ -76,7 +86,9 @@ const alimentos = [
         "Potássio (mg)":300.0,
         "Cálcio (mg)":12,
         "Vitaminas Principais":"-",
-        " Calorias":239
+        "Calorias":239,
+        "Imagem":"Frango.jpg",
+        "ID":"frango"
     },
     {
         "Alimento":"Ovo",
@@ -89,7 +101,9 @@ const alimentos = [
         "Potássio (mg)":126.0,
         "Cálcio (mg)":56,
         "Vitaminas Principais":"B12, D",
-        " Calorias":155
+        "Calorias":155,
+        "Imagem":"Ovo.jpg",
+        "ID":"ovo"
     },
     {
         "Alimento":"Café (sem açúcar)",
@@ -102,7 +116,9 @@ const alimentos = [
         "Potássio (mg)":90.0,
         "Cálcio (mg)":0,
         "Vitaminas Principais":"-",
-        " Calorias":0
+        "Calorias":0,
+        "Imagem":"Cafe.jpg",
+        "ID":"cafe"
     },
     {
         "Alimento":"Banana",
@@ -115,7 +131,9 @@ const alimentos = [
         "Potássio (mg)":360.0,
         "Cálcio (mg)":5,
         "Vitaminas Principais":"B6, C",
-        " Calorias":89
+        "Calorias":89,
+        "Imagem":"Banana.jpg",
+        "ID":"banana"
     },
     {
         "Alimento":"Batata branca",
@@ -128,19 +146,12 @@ const alimentos = [
         "Potássio (mg)":425.0,
         "Cálcio (mg)":10,
         "Vitaminas Principais":"C",
-        " Calorias":79
+        "Calorias":79,
+        "Imagem":"Batata.jpg",
+        "ID":"batata"   
     }
 ]
 
 $(document).ready(function() {
-    alimentos.map((alimento) => {
-        const html = `
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">${alimento.Alimento}</h5>
-                <p class="card-text">Carboidratos: ${alimento["Carboidratos (mg)"]}</p>
-            </div>
-        </div>`
-        $('#alimentos').append(html);
-    });
 });
+
