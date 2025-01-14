@@ -156,27 +156,3 @@ function mudarAba(event, tabId) {
     // Mostrar o conteúdo associado à aba clicada
     document.getElementById(tabId).classList.add('active');
 }
-
-$(document).ready(function() {
-    alimentos.forEach(alimento => {
-        const card = `
-            <div class="card">
-                <img src="imagens/${alimento.Imagem}" alt="${alimento.Alimento}">
-                <h3>${alimento.Alimento}</h3>
-                <p>Carboidratos: ${alimento["Carboidratos (mg)"]}mg</p>
-                <p>Proteínas: ${alimento["Proteínas (mg)"]}mg</p>
-                <p>Gorduras: ${alimento["Gorduras (mg)"]}mg</p>
-                <p>Fibras: ${alimento["Fibras (mg)"]}mg</p>
-                <p>Açúcares: ${alimento["Açúcares (mg)"]}mg</p>
-                <p>Sódio: ${alimento["Sódio (mg)"]}mg</p>
-                <p>Potássio: ${alimento["Potássio (mg)"]}mg</p>
-                <p>Cálcio: ${alimento["Cálcio (mg)"]}mg</p>
-                <p>Vitaminas Principais: ${alimento["Vitaminas Principais"]}</p>
-            </div>
-        `;
-
-        $('.cards').append(card);
-    }
-)}
-)
-
