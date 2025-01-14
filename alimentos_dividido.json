@@ -1,4 +1,4 @@
-const alimentos =[
+[
     {
         "Alimento": "Arroz branco",
         "Carboidratos (mg)": 0.282,
@@ -150,19 +150,3 @@ const alimentos =[
         "ID": "batata"
     }
 ]
-
-function mudarAba(event, tabId) {
-    // Remover a classe "active" de todos os botões
-    const buttons = document.querySelectorAll('.tab-button');
-    buttons.forEach(button => button.classList.remove('active'));
-
-    // Adicionar a classe "active" ao botão clicado
-    event.currentTarget.classList.add('active');
-
-    // Remover a classe "active" de todo o conteúdo
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(content => content.classList.remove('active'));
-
-    // Mostrar o conteúdo associado à aba clicada
-    document.getElementById(tabId).classList.add('active');
-}
