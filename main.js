@@ -1,3 +1,12 @@
+const carboidratos = 0
+const proteinas = 0
+const gorduras = 0
+const fibras = 0
+const acucares = 0
+const sodio = 0
+const potassio = 0
+const calcio = 0
+
 const alimentos =[
     {
         "Alimento": "Arroz branco",
@@ -11,7 +20,7 @@ const alimentos =[
         "Cálcio (mg)": 0.1,
         "Vitaminas Principais": "-",
         "Imagem": "Arroz.jpg",
-        "ID": "arroz"
+        "ID": "input-arroz"
     },
     {
         "Alimento": "Feijão",
@@ -25,7 +34,7 @@ const alimentos =[
         "Cálcio (mg)": 0.5,
         "Vitaminas Principais": "B9",
         "Imagem": "Feijão.jpg",
-        "ID": "feijao"
+        "ID": "input-feijao"
     },
     {
         "Alimento": "Pão francês",
@@ -39,7 +48,7 @@ const alimentos =[
         "Cálcio (mg)": 0.2,
         "Vitaminas Principais": "-",
         "Imagem": "Pão.jpg",
-        "ID": "pao"
+        "ID": "input-pao"
     },
     {
         "Alimento": "Laranja",
@@ -53,7 +62,7 @@ const alimentos =[
         "Cálcio (mg)": 0.4,
         "Vitaminas Principais": "C, A",
         "Imagem": "Laranja.jpg",
-        "ID": "laranja"
+        "ID": "input-laranja"
     },
     {
         "Alimento": "Carne bovina",
@@ -67,7 +76,7 @@ const alimentos =[
         "Cálcio (mg)": 0.15,
         "Vitaminas Principais": "-",
         "Imagem": "Carne.jpg",
-        "ID": "carne"
+        "ID": "input-carne"
     },
     {
         "Alimento": "Carne de frango",
@@ -81,7 +90,7 @@ const alimentos =[
         "Cálcio (mg)": 0.12,
         "Vitaminas Principais": "-",
         "Imagem": "Frango.jpg",
-        "ID": "frango"
+        "ID": "input-frango"
     },
     {
         "Alimento": "Ovo",
@@ -95,7 +104,7 @@ const alimentos =[
         "Cálcio (mg)": 0.56,
         "Vitaminas Principais": "B12, D",
         "Imagem": "Ovo.jpg",
-        "ID": "ovo"
+        "ID": "input-ovo"
     },
     {
         "Alimento": "Café (sem açúcar)",
@@ -109,7 +118,7 @@ const alimentos =[
         "Cálcio (mg)": 0.0,
         "Vitaminas Principais": "-",
         "Imagem": "Café.jpg",
-        "ID": "cafe"
+        "ID": "input-cafe"
     },
     {
         "Alimento": "Banana",
@@ -123,7 +132,7 @@ const alimentos =[
         "Cálcio (mg)": 0.05,
         "Vitaminas Principais": "B6, C",
         "Imagem": "Banana.jpg",
-        "ID": "banana"
+        "ID": "input-banana"
     },
     {
         "Alimento": "Batata branca",
@@ -137,38 +146,73 @@ const alimentos =[
         "Cálcio (mg)": 0.1,
         "Vitaminas Principais": "C",
         "Imagem": "Batata.jpg",
-        "ID": "batata"
+        "ID": "input-batata"
     }
 ]
 
+// Mudar entre as 3 principais abas 
 function mudarAba(event, tabId) {
-    // Remover a classe "active" de todos os botões
+    // Remove a classe "active" de todos os botões
     const buttons = document.querySelectorAll('.tab-button');
     buttons.forEach(button => button.classList.remove('active'));
 
-    // Adicionar a classe "active" ao botão clicado
+    // Adiciona a classe "active" no botão clicado
     event.currentTarget.classList.add('active');
 
-    // Remover a classe "active" de todo o conteúdo
+    // Remove a classe "active" de todo o conteúdo
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
 
-    // Mostrar o conteúdo associado à aba clicada
+    // Mostra o conteúdo da aba selecionada
     document.getElementById(tabId).classList.add('active');
 }
 
+// Avançar depois de selecionar os alimentos
 function avancar(tabId) {
-    // Remover a classe "active" de todos os botões
     const buttons = document.querySelectorAll('.tab-button');
     buttons.forEach(button => button.classList.remove('active'));
 
-    // Adicionar a classe "active" ao botão clicado
     document.getElementById('link-graficos').classList.add('active');
 
-    // Remover a classe "active" de todo o conteúdo
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => content.classList.remove('active'));
 
-    // Mostrar o conteúdo associado à aba clicada
     document.getElementById(tabId).classList.add('active');
 }
+
+// Trocar entre os tipos de gráficos
+
+function mudarGrafico(chartId) {
+    const contents = document.querySelectorAll('.grafico-tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    document.getElementById(chartId).classList.add('active');
+}
+
+//
+
+function atualizaRefeicao(){
+    alimentos.forEach(alimento => {
+        let quantidade = $('#'+alimento["ID"]).val()
+        alert(quantidade)
+        alert(alimento["Carboidratos (mg)"])
+        carboidratos += alimento["Carboidratos (mg)"] * quantidade
+        alert(carboidratos)
+        proteinas += alimento["Proteínas (mg)"] * quantidade
+        gorduras += alimento["Gorduras (mg)"] * quantidade
+        fibras += alimento["Fibras (mg)"] * quantidade
+        acucares += alimento["Açúcares (mg)"] * quantidade
+        sodio += alimento["Sódio (mg)"] * quantidade
+        potassio += alimento["Potássio (mg)"] * quantidade
+        calcio += alimento["Cálcio (mg)"] * quantidade
+    })
+    alert(carboidratos)
+    alert(proteinas)
+    avancar('graficos')
+}
+
+// Graficos
+
+// Gráfico Porcentagem de Nutrientes
+
+const ctx = document.getElementById('grafico-pct-nutrientes');

@@ -6,6 +6,7 @@
     <title>Nutrição</title>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css"/>
 </head>
@@ -25,7 +26,7 @@
     </header>
 
     <main>
-        <div class="tab-content active" id="alimentos">
+        <div class="tab-content" id="alimentos">
             <p>Selecione os alimentos que deseja adicionar a sua refeição</p>
             <div class="cards">
                 <div class="card" id="card-arroz">
@@ -469,10 +470,30 @@
                     <input type="text" id="input-" placeholder="Quantidade em gramas"/>
                 </div>
             </div>
-            <button class="btn" id="btn-avancar" onclick="avancar('graficos')">Avançar</button>
+            <button class="btn" id="btn-avancar" onclick="atualizaRefeicao()">Avançar</button>
         </div>
-        <div class="tab-content" id="refeicoes">Refeições</div>
-        <div class="tab-content" id="graficos">Gráficos</div>
+        <div class="tab-content" id="refeicoes"></div>
+        <div class="tab-content active" id="graficos">
+            <div class="graficos-tab">
+                <div class="radio-input">
+                    <label>
+                    <input value="value-1" name="select-tab" id="refeicao" type="radio"  onclick="mudarGrafico('grafico-refeicao')" checked/>
+                    <span>Refeição</span>
+                    </label>
+                    <label>
+                    <input value="value-2" name="select-tab" id="semanal" type="radio" onclick="mudarGrafico('grafico-meta-semanal')"/>
+                    <span>Semanal</span>
+                    </label>
+                    <span class="selection"></span>
+                </div>
+                <div class="grafico-tab-content active" id="grafico-refeicao">
+                    <div>
+                        <canvas id="grafico-pct-nutrientes"></canvas>
+                    </div>
+                </div>
+                <div class="grafico-tab-content" id="grafico-meta-semanal">abacate</div>
+            </div>
+        </div>
     </main>
 
     <footer>
