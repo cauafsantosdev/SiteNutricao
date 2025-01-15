@@ -73,6 +73,14 @@ html, body { /* Evita o efeito de scroll */
 }
 /* Conteúdo */
 
+#alimentos{
+    text-align: center;
+}
+
+#alimentos p{
+    font-size: large;
+    color: black;
+}
 /* Cartões de alimentos*/	
 .cards{
     display: flex;
@@ -91,21 +99,44 @@ html, body { /* Evita o efeito de scroll */
 }
 
 .card img{
-    margin: 1.5px 0 0 47px;
+    margin: 1.5px 50px;
     height: 180px;
     width: 180px;   
 }
 
 .card h3{
     color: black;
-    text-align: right;
     margin: 5px; 
-    width: 70%;
+    width: 50%;
     display: inline-block;
 }
 
-#card-feijao h3{
-    width: 65%;
+#card-laranja h3{
+    width: 30%;
+}
+
+#card-frango h3{
+    width: 55%;
+    text-align: left;
+}
+
+#card-ovo h3{
+    width: 27%;
+    text-align: right;
+}
+
+#card-cafe h3{
+    width: 56%;
+}
+
+#card-banana h3{
+    text-align: right;
+    width: 32%;
+}
+
+#card-batata h3{
+    text-align: right;
+    width: 35%;
 }
 
 .card h6{
@@ -139,7 +170,7 @@ html, body { /* Evita o efeito de scroll */
 .card input{
     width: 140px;
     padding: 5px;
-    margin: 5px 0 5px 60px;
+    margin: 5px auto;
     border-radius: 5px;
     border: 1px solid black;
     background-color: rgb(236, 218, 191);
@@ -147,6 +178,23 @@ html, body { /* Evita o efeito de scroll */
 
 .card input:hover{
     box-shadow: 0 0 0 1px black;
+}
+
+/* Botão de avançar */
+
+.btn{
+    justify-content: center;
+    margin: 10px;
+    background-color: darkorchid;
+    color: white;
+    border: none;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+}
+
+.btn:hover{
+    background-color: rgb(119, 4, 169);
 }
 
 /* Rodapé */

@@ -156,3 +156,19 @@ function mudarAba(event, tabId) {
     // Mostrar o conteúdo associado à aba clicada
     document.getElementById(tabId).classList.add('active');
 }
+
+function avancar(tabId) {
+    // Remover a classe "active" de todos os botões
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    // Adicionar a classe "active" ao botão clicado
+    document.getElementById('link-graficos').classList.add('active');
+
+    // Remover a classe "active" de todo o conteúdo
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // Mostrar o conteúdo associado à aba clicada
+    document.getElementById(tabId).classList.add('active');
+}
