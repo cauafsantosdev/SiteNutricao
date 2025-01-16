@@ -1,11 +1,11 @@
-const carboidratos = 0
-const proteinas = 0
-const gorduras = 0
-const fibras = 0
-const acucares = 0
-const sodio = 0
-const potassio = 0
-const calcio = 0
+var carboidratos = 0
+var proteinas = 0
+var gorduras = 0
+var fibras = 0
+var acucares = 0
+var sodio = 0
+var potassio = 0
+var calcio = 0
 
 const alimentos =[
     {
@@ -223,9 +223,7 @@ function atualizaRefeicao(){
     alimentos.forEach(alimento => {
         let quantidade = $('#' + alimento.id).val()
         alert(quantidade + alimento.nome)
-        alert(alimento.carboidratos)
         carboidratos += alimento.carboidratos * quantidade
-        alert(carboidratos)
         proteinas += alimento.proteinas * quantidade
         gorduras += alimento.gorduras * quantidade
         fibras += alimento.fibras * quantidade
