@@ -330,10 +330,13 @@ html, body { /* Evita o efeito de scroll */
     padding: 20px;
     border: 1px solid #ccc;
     border-top: none;
+    min-height: 3.125rem;
+    z-index: 1;
 }
 
 .grafico-tab-content.active {
     display: block;
+    z-index: 2;
 }
 
 /* Rodapé */

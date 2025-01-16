@@ -9,6 +9,8 @@ var calcio = 0
 
 var consumidos = new Object();
 
+let barChart = null;
+
 const alimentos =[
     {
         "nome": "Arroz branco",
@@ -213,11 +215,14 @@ function avancar(tabId) {
 // Trocar entre os tipos de gráficos
 
 function mudarGrafico(chartId) {
-    const contents = document.querySelectorAll('.grafico-tab-content');
-    contents.forEach(content => content.classList.remove('active'));
+    const graficoTabContents = document.querySelectorAll('.grafico-tab-content');
+    graficoTabContents.forEach(content => {
+        content.classList.remove('active');
+    });
 
     document.getElementById(chartId).classList.add('active');
 }
+
 
 //
 function atualizaRefeicao(){
@@ -243,31 +248,40 @@ function atualizaRefeicao(){
 
 // Graficos
 
-// Gráfico Porcentagem de Nutrientes
+// Gráfico de Porcentagem de Nutrientes
+
 function updateChart() {
     const consumidos_nomes = Object.keys(consumidos);
     const consumidos_valores = Object.values(consumidos);
-    
-    console.log(consumidos_nomes)
-    console.log(consumidos_valores)
-    const ctx = document.getElementById('grafico-qtd-alimentos');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: Object.keys(consumidos),
-            datasets: [{
-                label: 'Quantidade de alimentos',
-                data: Object.values(consumidos),
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    console.log(consumidos_nomes);
+    console.log(consumidos_valores);
+
+    if (barChart) {
+        barChart.destroy();
+    }
+
+    requestAnimationFrame(() => {
+        const ctx = document.getElementById('grafico-qtd-alimentos').getContext('2d');
+
+        barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: consumidos_nomes,
+                datasets: [{
+                    label: 'Quantidade de alimentos',
+                    data: consumidos_valores,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
+        document.getElementById('grafico-refeicao').classList.add('active');
     });
 }
