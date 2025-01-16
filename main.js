@@ -7,6 +7,8 @@ var sodio = 0
 var potassio = 0
 var calcio = 0
 
+var consumidos = []
+
 const alimentos =[
     {
         "nome": "Arroz branco",
@@ -222,7 +224,9 @@ function mudarGrafico(chartId) {
 function atualizaRefeicao(){
     alimentos.forEach(alimento => {
         let quantidade = $('#' + alimento.id).val()
-        alert(quantidade + alimento.nome)
+        if (quantidade != '' && !consumidos.includes(alimento.nome)) {
+            consumidos.push(alimento.nome)
+        }
         carboidratos += alimento.carboidratos * quantidade
         proteinas += alimento.proteinas * quantidade
         gorduras += alimento.gorduras * quantidade
@@ -231,9 +235,10 @@ function atualizaRefeicao(){
         sodio += alimento.sodio * quantidade
         potassio += alimento.potassio * quantidade
         calcio += alimento.calcio * quantidade
+        console.log(quantidade)
     })
-    alert(carboidratos)
-    alert(proteinas)
+    alert(consumidos)
+    console.log(consumidos)
     avancar('graficos')
 }
 
