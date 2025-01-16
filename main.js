@@ -10,6 +10,7 @@ var calcio = 0
 var consumidos = new Object();
 
 let barChart = null;
+let pieChart = null;
 
 const alimentos =[
     {
@@ -231,14 +232,14 @@ function atualizaRefeicao(){
         if (quantidade != '' && !(alimento.nome in consumidos)) {
             consumidos[alimento.nome] = quantidade
         }
-        carboidratos += alimento.carboidratos * quantidade
-        proteinas += alimento.proteinas * quantidade
-        gorduras += alimento.gorduras * quantidade
-        fibras += alimento.fibras * quantidade
-        acucares += alimento.acucares * quantidade
-        sodio += alimento.sodio * quantidade
-        potassio += alimento.potassio * quantidade
-        calcio += alimento.calcio * quantidade
+        carboidratos += (alimento.carboidratos * quantidade) / 1000
+        proteinas += (alimento.proteinas * quantidade) / 1000
+        gorduras += (alimento.gorduras * quantidade) / 1000
+        fibras += (alimento.fibras * quantidade) / 1000
+        acucares += (alimento.acucares * quantidade) / 1000
+        sodio += (alimento.sodio * quantidade) / 1000
+        potassio += (alimento.potassio * quantidade) / 1000
+        calcio += (alimento.calcio * quantidade) / 1000
     })
     console.log(consumidos)
     updateChart()
@@ -254,17 +255,15 @@ function updateChart() {
     const consumidos_nomes = Object.keys(consumidos);
     const consumidos_valores = Object.values(consumidos);
 
-    console.log(consumidos_nomes);
-    console.log(consumidos_valores);
-
-    if (barChart) {
+    if (barChart || pieChart) {
         barChart.destroy();
+        pieChart.destroy();
     }
 
     requestAnimationFrame(() => {
-        const ctx = document.getElementById('grafico-qtd-alimentos').getContext('2d');
+        const bar_ctx = document.getElementById('grafico-qtd-alimentos').getContext('2d');
 
-        barChart = new Chart(ctx, {
+        barChart = new Chart(bar_ctx, {
             type: 'bar',
             data: {
                 labels: consumidos_nomes,
@@ -282,6 +281,37 @@ function updateChart() {
                 }
             }
         });
+
+        const pie_ctx = document.getElementById('grafico-qtd-nutrientes').getContext('2d');
+
+        pieChart = new Chart(pie_ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Carboidratos", "Proteínas", "Gorduras", "Fibras", "Açúcares", "Sódio", "Potássio", "Cálcio"],
+                datasets: [{
+                    label: 'Quantidades de nutrientes (em g)',
+                    data: [carboidratos, proteinas, gorduras, fibras, acucares, sodio, potassio, calcio],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
         document.getElementById('grafico-refeicao').classList.add('active');
+
+        carboidratos = 0
+        proteinas = 0
+        gorduras = 0
+        fibras = 0
+        acucares = 0
+        sodio = 0
+        potassio = 0
+        calcio = 0
+        consumidos = new Object();
     });
 }
