@@ -104,7 +104,7 @@ html, body { /* Evita o efeito de scroll */
 }
 
 .card:hover{
-    box-shadow: 0 0 0px 3px #6113f1d0;
+    box-shadow: 0 0 0.25px 2.5px #6113f1d0;
 }
 
 .card img{
@@ -160,9 +160,9 @@ html, body { /* Evita o efeito de scroll */
     width: 100%;
     max-width: 260px;
     margin: 0 auto;
-    background-color: #35116ed0;
+    background-color: #4a2586d0;
     border-radius: 0.5em;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 .card td{
@@ -185,6 +185,8 @@ html, body { /* Evita o efeito de scroll */
     border-radius: 5px;
     border: 1px solid black;
     background-color: #3d1f6dd0;
+    color: white;
+    text-align: center;
 }
 
 .card input:hover{
