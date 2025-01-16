@@ -19,7 +19,8 @@ const alimentos =[
         "potassio": 0.35,
         "calcio": 0.1,
         "vitaminas_principais": null,
-        "calorias": 130
+        "calorias": 130,
+        "id": "input-arroz"
     },
     {
         "nome": "Feijão",
@@ -32,7 +33,8 @@ const alimentos =[
         "potassio": 15,
         "calcio": 0.5,
         "vitaminas_principais": "B9",
-        "calorias": 132
+        "calorias": 132,
+        "id": "input-feijao"
     },
     {
         "nome": "Pão francês",
@@ -45,7 +47,8 @@ const alimentos =[
         "potassio": 1.2,
         "calcio": 0.2,
         "vitaminas_principais": null,
-        "calorias": 270
+        "calorias": 270,
+        "id": "input-pao"
     },
     {
         "nome": "Laranja",
@@ -58,7 +61,8 @@ const alimentos =[
         "potassio": 1.8,
         "calcio": 0.4,
         "vitaminas_principais": ["C", "A"],
-        "calorias": 47
+        "calorias": 47,
+        "id": "input-laranja"
     },
     {
         "nome": "Carne bovina",
@@ -71,7 +75,8 @@ const alimentos =[
         "potassio": 3.5,
         "calcio": 0.15,
         "vitaminas_principais": null,
-        "calorias": 250
+        "calorias": 250,
+        "id": "input-carne"
     },
     {
         "nome": "Carne de frango",
@@ -84,7 +89,8 @@ const alimentos =[
         "potassio": 3,
         "calcio": 0.12,
         "vitaminas_principais": null,
-        "calorias": 239
+        "calorias": 239,
+        "id": "input-frango"
     },
     {
         "nome": "Ovo",
@@ -97,7 +103,8 @@ const alimentos =[
         "potassio": 1.26,
         "calcio": 0.56,
         "vitaminas_principais": ["B12", "D"],
-        "calorias": 155
+        "calorias": 155,
+        "id": "input-ovo"
     },
     {
         "nome": "Café (sem açúcar)",
@@ -110,7 +117,8 @@ const alimentos =[
         "potassio": 0.9,
         "calcio": 0,
         "vitaminas_principais": null,
-        "calorias": 0
+        "calorias": 0,
+        "id": "input-cafe"
     },
     {
         "nome": "Banana",
@@ -123,7 +131,8 @@ const alimentos =[
         "potassio": 3.6,
         "calcio": 0.05,
         "vitaminas_principais": ["B6", "C"],
-        "calorias": 89
+        "calorias": 89,
+        "id": "input-banana"
     },
     {
         "nome": "Batata branca",
@@ -136,7 +145,8 @@ const alimentos =[
         "potassio": 4.25,
         "calcio": 0.1,
         "vitaminas_principais": "C",
-        "calorias": 79
+        "calorias": 79,
+        "id": "input-batata"
     },
     {
         "nome": "Cenoura",
@@ -149,7 +159,8 @@ const alimentos =[
         "potassio": 3.2,
         "calcio": 0.33,
         "vitaminas_principais": ["A", "C"],
-        "calorias": 41
+        "calorias": 41,
+        "id": "input-cenoura"
     },
     {
         "nome": "Queijo",
@@ -162,7 +173,8 @@ const alimentos =[
         "potassio": 0.95,
         "calcio": 7.31,
         "vitaminas_principais": ["B6", "D"],
-        "calorias": 280
+        "calorias": 280,
+        "id": "input-queijo"
     }
     ]
 
@@ -209,18 +221,18 @@ function mudarGrafico(chartId) {
 
 function atualizaRefeicao(){
     alimentos.forEach(alimento => {
-        let quantidade = $('#'+alimento["ID"]).val()
-        alert(quantidade)
-        alert(alimento["Carboidratos (mg)"])
-        carboidratos += alimento["Carboidratos (mg)"] * quantidade
+        let quantidade = $('#' + alimento.id).val()
+        alert(quantidade + alimento.nome)
+        alert(alimento.carboidratos)
+        carboidratos += alimento.carboidratos * quantidade
         alert(carboidratos)
-        proteinas += alimento["Proteínas (mg)"] * quantidade
-        gorduras += alimento["Gorduras (mg)"] * quantidade
-        fibras += alimento["Fibras (mg)"] * quantidade
-        acucares += alimento["Açúcares (mg)"] * quantidade
-        sodio += alimento["Sódio (mg)"] * quantidade
-        potassio += alimento["Potássio (mg)"] * quantidade
-        calcio += alimento["Cálcio (mg)"] * quantidade
+        proteinas += alimento.proteinas * quantidade
+        gorduras += alimento.gorduras * quantidade
+        fibras += alimento.fibras * quantidade
+        acucares += alimento.acucares * quantidade
+        sodio += alimento.sodio * quantidade
+        potassio += alimento.potassio * quantidade
+        calcio += alimento.calcio * quantidade
     })
     alert(carboidratos)
     alert(proteinas)
