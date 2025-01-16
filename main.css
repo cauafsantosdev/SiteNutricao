@@ -122,11 +122,11 @@ html, body { /* Evita o efeito de scroll */
 }
 
 #card-laranja h3{
-    width: 30%;
+    width: 26%;
 }
 
 #card-frango h3{
-    width: 55%;
+    width: 54%;
     text-align: left;
 }
 
@@ -136,7 +136,7 @@ html, body { /* Evita o efeito de scroll */
 }
 
 #card-cafe h3{
-    width: 56%;
+    width: 58%;
 }
 
 #card-banana h3{
@@ -145,6 +145,36 @@ html, body { /* Evita o efeito de scroll */
 }
 
 #card-batata h3{
+    text-align: right;
+    width: 35%;
+}
+
+#card-carne h3{
+    text-align: right;
+    width: 45%;
+}
+
+#card-arroz h3{
+    text-align: right;
+    width: 45%;
+}
+
+#card-feijao h3{
+    text-align: right;
+    width: 50%;
+}
+
+#card-pao h3{
+    text-align: right;
+    width: 50%;
+}
+
+#card-cenoura h3{
+    text-align: right;
+    width: 35%;
+}
+
+#card-queijo h3{
     text-align: right;
     width: 35%;
 }
@@ -203,16 +233,21 @@ html, body { /* Evita o efeito de scroll */
 .btn{
     justify-content: center;
     margin: 10px;
-    background-color: darkorchid;
+    background-color: #842cf7;
     color: white;
-    border: none;
+    border: 0.125rem solid #4d0588;
+    border-radius: 0.3rem;
     font-weight: bold;
-    width: 100px;
-    height: 40px;
+    width: 15.625rem;
+    height: 2.5rem;
 }
 
 .btn:hover{
-    background-color: rgb(119, 4, 169);
+    box-shadow: 0 0 0.016rem 0.313rem #6113f1d0;
+}
+
+.btn:active{
+    background-color: #4f0fb6;
 }
 
 /* Página de Refeições*/
