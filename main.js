@@ -7,7 +7,7 @@ var sodio = 0
 var potassio = 0
 var calcio = 0
 
-var consumidos = []
+var consumidos = new Object();
 
 const alimentos =[
     {
@@ -220,12 +220,11 @@ function mudarGrafico(chartId) {
 }
 
 //
-
 function atualizaRefeicao(){
     alimentos.forEach(alimento => {
         let quantidade = $('#' + alimento.id).val()
-        if (quantidade != '' && !consumidos.includes(alimento.nome)) {
-            consumidos.push(alimento.nome)
+        if (quantidade != '' && !(alimento.nome in consumidos)) {
+            consumidos[alimento.nome] = quantidade
         }
         carboidratos += alimento.carboidratos * quantidade
         proteinas += alimento.proteinas * quantidade
@@ -235,15 +234,40 @@ function atualizaRefeicao(){
         sodio += alimento.sodio * quantidade
         potassio += alimento.potassio * quantidade
         calcio += alimento.calcio * quantidade
-        console.log(quantidade)
     })
-    alert(consumidos)
     console.log(consumidos)
+    updateChart()
     avancar('graficos')
 }
+
 
 // Graficos
 
 // Gráfico Porcentagem de Nutrientes
+function updateChart() {
+    const consumidos_nomes = Object.keys(consumidos);
+    const consumidos_valores = Object.values(consumidos);
+    
+    console.log(consumidos_nomes)
+    console.log(consumidos_valores)
+    const ctx = document.getElementById('grafico-qtd-alimentos');
 
-const ctx = document.getElementById('grafico-pct-nutrientes');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: Object.keys(consumidos),
+            datasets: [{
+                label: 'Quantidade de alimentos',
+                data: Object.values(consumidos),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
