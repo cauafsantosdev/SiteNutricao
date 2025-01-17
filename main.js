@@ -286,8 +286,10 @@ function updateChart() {
     const consumidos_nomes = Object.keys(consumidos);
     const consumidos_valores = Object.values(consumidos);
 
-    if (barChart || pieChart) {
+    if (barChart) {
         barChart.destroy();
+    }
+    if (pieChart) {
         pieChart.destroy();
     }
 
@@ -299,12 +301,19 @@ function updateChart() {
             data: {
                 labels: consumidos_nomes,
                 datasets: [{
-                    label: 'Quantidade de alimentos',
+                    label: 'Quantidade em g',
                     data: consumidos_valores,
-                    borderWidth: 1
+                    borderWidth: 1,
+                    backgroundColor: 'rgba(98, 0, 255, 0.4)',
+                    borderColor: 'rgb(97, 0, 252)',
+                    borderWidth: '1px',
+                    hoverBackgroundColor: 'rgba(61, 3, 155, 0.7)',
+                    hoverBorderColor: 'rgb(98, 1, 255)',
+                    hoverBorderWidth: '3px'
                 }]
             },
             options: {
+                responsive: true,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -320,12 +329,16 @@ function updateChart() {
             data: {
                 labels: ["Carboidratos", "Proteínas", "Gorduras", "Fibras", "Açúcares", "Sódio", "Potássio", "Cálcio"],
                 datasets: [{
-                    label: 'Quantidades de nutrientes (em g)',
+                    label: 'Quantidades em g',
                     data: [carboidratos, proteinas, gorduras, fibras, acucares, sodio, potassio, calcio],
                     borderWidth: 1
                 }]
             },
             options: {
+                responsive: true,
+                legend: {
+                    display: false
+                },
                 scales: {
                     y: {
                         beginAtZero: true
