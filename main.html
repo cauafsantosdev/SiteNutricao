@@ -573,14 +573,17 @@
                         <span>Semanal</span>
                     </label>
                     <span class="selection"></span>
-                </div>
-        
+                </div>       
                 <div class="grafico-tab-content active" id="grafico-refeicao">
                     <div class="qtd-alimentos">
                         <canvas id="grafico-qtd-alimentos"></canvas>
                     </div>
                     <div class="qtd-nutrientes">
                         <canvas id="grafico-qtd-nutrientes"></canvas>
+                    </div>
+                    <div class="botoes" id="botoes-grafico">
+                        <button class="btn" id="btn-retornar" onclick="voltarAlimentos()">Retornar</button>
+                        <button class="btn" id="btn-adicionar-refeicao" onclick="adicionarRefeicao()">Adicionar Refeição</button>
                     </div>
                 </div>
                 <div class="grafico-tab-content" id="grafico-meta-semanal">

@@ -233,6 +233,8 @@ function avancar(tabId) {
     contents.forEach(content => content.classList.remove('active'));
 
     document.getElementById(tabId).classList.add('active');
+
+    document.getElementById('botoes-grafico').classList.add('active');
 }
 
 // Trocar entre os tipos de gráficos
@@ -246,10 +248,56 @@ function mudarGrafico(chartId) {
     document.getElementById(chartId).classList.add('active');
 }
 
+//Voltar para a seleção de alimentos
+
+function voltarAlimentos() {
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById('link-alimentos').classList.add('active');
+
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    document.getElementById('alimentos').classList.add('active');
+}
+
+// Função para adicionar os alimentos na refeição
+
+function adicionarRefeicao() {
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(button => button.classList.remove('active'));
+
+    document.getElementById('link-refeicoes').classList.add('active');
+
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    document.getElementById('refeicoes').classList.add('active');
+
+    consumoDiario["Carboidratos"] += carboidratos
+    consumoDiario["Proteínas"] += proteinas
+    consumoDiario["Gorduras"] += gorduras
+    consumoDiario["Fibras"] += fibras
+    consumoDiario["Açúcares"] += acucares
+    consumoDiario["Sódio"] += sodio
+    consumoDiario["Potássio"] += potassio
+    consumoDiario["Cálcio"] += calcio
+}
 
 //
 function atualizaRefeicao(){
+    carboidratos = 0
+    proteinas = 0
+    gorduras = 0
+    fibras = 0
+    acucares = 0
+    sodio = 0
+    potassio = 0
+    calcio = 0
+
     alimentos.forEach(alimento => {
+
         let quantidade = $('#' + alimento.id).val()
         if (quantidade != '' && !(alimento.nome in consumidos)) {
             consumidos[alimento.nome] = quantidade
@@ -264,14 +312,6 @@ function atualizaRefeicao(){
         calcio += (alimento.calcio * quantidade) / 1000
     })
 
-    consumoDiario["Carboidratos"] += carboidratos
-    consumoDiario["Proteínas"] += proteinas
-    consumoDiario["Gorduras"] += gorduras
-    consumoDiario["Fibras"] += fibras
-    consumoDiario["Açúcares"] += acucares
-    consumoDiario["Sódio"] += sodio
-    consumoDiario["Potássio"] += potassio
-    consumoDiario["Cálcio"] += calcio
 
     updateChart()
     avancar('graficos')
@@ -285,6 +325,8 @@ function atualizaRefeicao(){
 function updateChart() {
     const consumidos_nomes = Object.keys(consumidos);
     const consumidos_valores = Object.values(consumidos);
+
+    consumidos = new Object();
 
     if (barChart) {
         barChart.destroy();
@@ -347,15 +389,17 @@ function updateChart() {
             }
         });
         document.getElementById('grafico-refeicao').classList.add('active');
-
-        carboidratos = 0
-        proteinas = 0
-        gorduras = 0
-        fibras = 0
-        acucares = 0
-        sodio = 0
-        potassio = 0
-        calcio = 0
-        consumidos = new Object();
     });
 }
+$(document).ready(function(){
+    $("input[type='text']").blur(function(){
+        console.log('funcionou')
+        const regex = /^\s*\d*\s*$/;
+
+        if (!regex.test($(this).val())) {
+            $(this).val('');
+            alert('Apenas numeros positivos são permitidos');
+        }
+    }
+    )
+})
