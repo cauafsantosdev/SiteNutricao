@@ -42,7 +42,7 @@ const gradients = [
     '#5E0B99', 
     '#8A2BE2', 
     '#2E0249', 
-    '#4B0082'  
+    '#842cf7'  
 ];
 
 const alimentos =[
@@ -371,6 +371,10 @@ function updateChart() {
                     legend: {
                         labels: {
                             color: 'white',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
                         }
                     }
                 },
@@ -384,6 +388,9 @@ function updateChart() {
                         },
                         ticks: {
                             color: 'white',
+                            font: {
+                                size: 14
+                            }
                         }
                     },
                     y: {
