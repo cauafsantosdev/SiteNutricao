@@ -34,6 +34,17 @@ var consumidos = new Object();
 let barChart = null;
 let pieChart = null;
 
+const gradients = [
+    '#663399',
+    '#4f0fb6', 
+    '#6A0DAD',
+    '#4B0082', 
+    '#5E0B99', 
+    '#8A2BE2', 
+    '#2E0249', 
+    '#4B0082'  
+];
+
 const alimentos =[
     {
         "nome": "Arroz branco",
@@ -351,16 +362,42 @@ function updateChart() {
                     borderWidth: '1px',
                     hoverBackgroundColor: 'rgba(61, 3, 155, 0.7)',
                     hoverBorderColor: 'rgb(98, 1, 255)',
-                    hoverBorderWidth: '3px'
+                    hoverBorderWidth: '3px',
                 }]
             },
             options: {
                 responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white',
+                        }
                     }
-                }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            lineWidth: 1,
+                            drawOnChartArea: true,
+                        },
+                        ticks: {
+                            color: 'white',
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            lineWidth: 1,
+                            drawOnChartArea: true,
+                        },
+                        ticks: {
+                            color: 'white',
+                        }
+                    }
+                },
             }
         });
 
@@ -373,18 +410,30 @@ function updateChart() {
                 datasets: [{
                     label: 'Quantidades em g',
                     data: [carboidratos, proteinas, gorduras, fibras, acucares, sodio, potassio, calcio],
-                    borderWidth: 1
+                    backgroundColor: gradients,
+                    borderColor: '#000000',
+                    borderWidth: 1,
                 }]
             },
             options: {
                 responsive: true,
-                legend: {
-                    display: false
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'rgb(255, 255, 255)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                        }
+                    }
                 },
                 scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+                        y: {
+                            ticks: {
+                                display: false
+                            }
+                        }
                 }
             }
         });
