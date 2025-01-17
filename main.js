@@ -7,6 +7,28 @@ var sodio = 0
 var potassio = 0
 var calcio = 0
 
+var consumoDiario = {
+    "Carboidratos": 0,
+    "Proteínas": 0,
+    "Gorduras": 0,
+    "Fibras": 0,
+    "Açúcares": 0,
+    "Sódio": 0,
+    "Potássio": 0,
+    "Cálcio": 0
+}
+
+var consumoSemanal = {
+    "Carboidratos": [],
+    "Proteínas": [],
+    "Gorduras": [],
+    "Fibras": [],
+    "Açúcares": [],
+    "Sódio": [],
+    "Potássio": [],
+    "Cálcio": []
+}
+
 var consumidos = new Object();
 
 let barChart = null;
@@ -140,7 +162,7 @@ const alimentos =[
         "id": "input-banana"
     },
     {
-        "nome": "Batata branca",
+        "nome": "Batata",
         "carboidratos": 175.8,
         "proteinas": 20.2,
         "gorduras": 1,
@@ -241,7 +263,16 @@ function atualizaRefeicao(){
         potassio += (alimento.potassio * quantidade) / 1000
         calcio += (alimento.calcio * quantidade) / 1000
     })
-    console.log(consumidos)
+
+    consumoDiario["Carboidratos"] += carboidratos
+    consumoDiario["Proteínas"] += proteinas
+    consumoDiario["Gorduras"] += gorduras
+    consumoDiario["Fibras"] += fibras
+    consumoDiario["Açúcares"] += acucares
+    consumoDiario["Sódio"] += sodio
+    consumoDiario["Potássio"] += potassio
+    consumoDiario["Cálcio"] += calcio
+
     updateChart()
     avancar('graficos')
 }
