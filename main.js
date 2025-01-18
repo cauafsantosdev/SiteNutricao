@@ -35,14 +35,14 @@ let barChart = null;
 let pieChart = null;
 
 const gradients = [
-  "#663399",
-  "#4f0fb6",
-  "#6A0DAD",
-  "#4B0082",
-  "#5E0B99",
-  "#8A2BE2",
-  "#2E0249",
-  "#D8B2FF",
+    '#663399',
+    '#4f0fb6', 
+    '#6A0DAD',
+    '#4B0082', 
+    '#5E0B99', 
+    '#8A2BE2', 
+    '#2E0249', 
+    '#4B0082'  
 ];
 
 const alimentos = [
@@ -338,56 +338,57 @@ function updateChart() {
       .getElementById("grafico-qtd-alimentos")
       .getContext("2d");
 
-    barChart = new Chart(bar_ctx, {
-      type: "bar",
-      data: {
-        labels: consumidos_nomes,
-        datasets: [
-          {
-            label: "Quantidade em g",
-            data: consumidos_valores,
-            borderWidth: 1,
-            backgroundColor: "rgba(125, 55, 238, 0.49)",
-            borderColor: "rgb(97, 0, 252)",
-            borderWidth: "1px",
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            labels: {
-              color: "white",
+        barChart = new Chart(bar_ctx, {
+            type: 'bar',
+            data: {
+                labels: consumidos_nomes,
+                datasets: [{
+                    label: 'Quantidade em g',
+                    data: consumidos_valores,
+                    borderWidth: 1,
+                    backgroundColor: 'rgba(98, 0, 255, 0.4)',
+                    borderColor: 'rgb(97, 0, 252)',
+                    borderWidth: '1px',
+                    hoverBackgroundColor: 'rgba(61, 3, 155, 0.7)',
+                    hoverBorderColor: 'rgb(98, 1, 255)',
+                    hoverBorderWidth: '3px',
+                }]
             },
-          },
-        },
-        scales: {
-          x: {
-            beginAtZero: true,
-            grid: {
-              color: "rgba(255, 255, 255, 0.2)",
-              lineWidth: 1,
-              drawOnChartArea: true,
-            },
-            ticks: {
-              color: "white",
-            },
-          },
-          y: {
-            beginAtZero: true,
-            grid: {
-              color: "rgba(255, 255, 255, 0.2)",
-              lineWidth: 1,
-              drawOnChartArea: true,
-            },
-            ticks: {
-              color: "white",
-            },
-          },
-        },
-      },
-    });
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white',
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            lineWidth: 1,
+                            drawOnChartArea: true,
+                        },
+                        ticks: {
+                            color: 'white',
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)',
+                            lineWidth: 1,
+                            drawOnChartArea: true,
+                        },
+                        ticks: {
+                            color: 'white',
+                        }
+                    }
+                },
+            }
+        });
 
     const pie_ctx = document
       .getElementById("grafico-qtd-nutrientes")
