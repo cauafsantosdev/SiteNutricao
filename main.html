@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nutrição</title>
@@ -8,606 +8,777 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js"></script>
-    <link rel="stylesheet" href="main.css"/>
-</head>
-<body>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
     <header>
-        <div class="navbar">
-            <div class="logo">
-                <img id="logo-img" src="imagens/nutrisite_logo.png" alt="Logo"/>
-                <p>Nutri Site</p>
-            </div>
-            <div class="menu">
-                <button class="tab-button active" id="link-alimentos" onclick="mudarAba(event, 'alimentos')">Alimentos</button>
-                <button class="tab-button" id="link-refeicoes" onclick="mudarAba(event, 'refeicoes')">Refeições</button>
-                <button class="tab-button" id="link-graficos" onclick="mudarAba(event, 'graficos')">Gráficos</button>
-            </div>
+      <div class="navbar">
+        <div class="logo">
+          <img id="logo-img" src="imagens/nutrisite_logo.png" alt="Logo" />
+          <p>Nutri Site</p>
         </div>
+        <div class="menu">
+          <button
+            class="tab-button"
+            id="link-alimentos"
+            onclick="mudarAba(event, 'alimentos')"
+          >
+            Alimentos
+          </button>
+          <button
+            class="tab-button active"
+            id="link-refeicoes"
+            onclick="mudarAba(event, 'refeicoes')"
+          >
+            Refeições
+          </button>
+          <button
+            class="tab-button"
+            id="link-graficos"
+            onclick="mudarAba(event, 'graficos')"
+          >
+            Gráficos
+          </button>
+        </div>
+      </div>
     </header>
 
     <main>
-        <div class="tab-content" id="alimentos">
-            <p>Selecione os alimentos que deseja adicionar a sua refeição</p>
-            <div class="cards">
-                <div class="card" id="card-arroz">
-                    <img src="imagens/arroz.png" alt="Arroz"/>
-                    <h3>Arroz Branco</h3> 
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>2.82 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>2.7 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>0.3 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>0.4 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>0.1 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.001 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.035 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.01 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-arroz" placeholder="Quantidade em gramas"/>
+      <div class="tab-content" id="alimentos">
+        <p>Selecione os alimentos que deseja adicionar a sua refeição</p>
+        <div class="cards">
+          <div class="card" id="card-arroz">
+            <img src="imagens/arroz.png" alt="Arroz" />
+            <h3>Arroz Branco</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>2.82 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>2.7 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0.3 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>0.4 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>0.1 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.001 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.035 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.01 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>---</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-arroz"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-feijao">
+            <img src="imagens/feijao.png" alt="Feijão" />
+            <h3>Feijão Preto</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>20 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>9 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0</td>
+              </tr>
 
-                </div>
-                <div class="card" id="card-feijao">
-                    <img src="imagens/feijao.png" alt="Feijão"/>
-                    <h3>Feijão Preto</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>20 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>9 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>0 </td>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>1.3 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>1 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>2 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>1.5 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.05 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>B9</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-feijao" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-pao">
-                    <img src="imagens/pao.png" alt="Pão Francês"/>
-                    <h3>Pão Francês</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>50 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>9 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>2.5 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>2.5 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>2.5 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.470 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.120 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.02 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-pao" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-laranja">
-                    <img src="imagens/laranja.png" alt="Laranjas"/>
-                    <h3>Laranja</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>11.75 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>0.940 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>0.120 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>1.8 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>9.35 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.001 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.180 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.040 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>A, C</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-laranja" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-carne">
-                    <img src="imagens/carne.png" alt="Carne Bovina"/>
-                    <h3>Carne Bovina</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>26 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>20 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.065 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.35 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.015 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-carne" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-frango">
-                    <img src="imagens/frango.png" alt="Carne de Frango"/>
-                    <h3>Carne de Frango</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>31 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>3.6 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.07 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.3 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.012 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-frango" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-ovo">
-                    <img src="imagens/ovos.png" alt="Ovos"/>
-                    <h3>Ovos</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>0.72 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>13 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>10 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.12 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.126 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.056</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>B12, D</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-ovo" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-cafe">
-                    <img src="imagens/cafe.png" alt="Café"/>
-                    <h3>Café (sem açúcar)</h3>
-                    <h6>100 ml</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.005 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.09 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-cafe" placeholder="Quantidade em mililitros"/>
-                </div>
-                <div class="card" id="card-banana">
-                    <img src="imagens/banana.png" alt="Bananas"/>
-                    <h3>Banana</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>22.84 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>1.09 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td> 0.33 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>2.6 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>12.23 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.001 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.36 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.005 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>B6, C</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-banana" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-batata">
-                    <img src="imagens/batata.png" alt="Batatas"/>
-                    <h3>Batatas</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>17.58 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>2.02 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>0.1 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>2.2 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>1.25 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.006 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.425 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.01 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>C</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-batata" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-cenoura">
-                    <img src="imagens/cenoura.png" alt="Cenoura"/>
-                    <h3>Cenoura</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>10 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>0.9 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>0.2 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>2.8 g</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>4.7 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.069 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.320 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.033 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>A, C</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-cenoura" placeholder="Quantidade em gramas"/>
-                </div>
-                <div class="card" id="card-queijo">
-                    <img src="imagens/queijo.png" alt="Queijo"/>
-                    <h3>Queijo</h3>
-                    <h6>100g</h6>
-                    <table>
-                        <tr>
-                            <td>Carboidratos</td>
-                            <td>3.83 g</td>
-                        </tr>
-                        <tr>
-                            <td>Proteínas</td>
-                            <td>25.96 g</td>
-                        </tr>
-                        <tr>
-                            <td>Gorduras</td>
-                            <td>20 g</td>
-                        </tr>
-                        <tr>
-                            <td>Fibras</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>Açúcares</td>
-                            <td>0.6 g</td>
-                        </tr>
-                        <tr>
-                            <td>Sódio</td>
-                            <td>0.528 g</td>
-                        </tr>
-                        <tr>
-                            <td>Potássio</td>
-                            <td>0.095 g</td>
-                        </tr>
-                        <tr>
-                            <td>Calcio</td>
-                            <td>0.732 g</td>
-                        </tr>
-                        <tr>
-                            <td>Vitaminas</td>
-                            <td>B6, D</td>
-                        </tr>
-                    </table>
-                    <input type="text" id="input-queijo" placeholder="Quantidade em gramas"/>
-                </div>
-            </div>
-            <button class="btn" id="btn-avancar" onclick="atualizaRefeicao()">Avançar</button>
+              <tr>
+                <td>Fibras</td>
+                <td>1.3 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>1 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>2 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>1.5 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.05 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>B9</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-feijao"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-pao">
+            <img src="imagens/pao.png" alt="Pão Francês" />
+            <h3>Pão Francês</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>50 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>9 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>2.5 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>2.5 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>2.5 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.470 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.120 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.02 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>---</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-pao"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-laranja">
+            <img src="imagens/laranja.png" alt="Laranjas" />
+            <h3>Laranja</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>11.75 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>0.940 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0.120 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>1.8 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>9.35 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.001 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.180 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.040 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>A, C</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-laranja"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-carne">
+            <img src="imagens/carne.png" alt="Carne Bovina" />
+            <h3>Carne Bovina</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>26 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>20 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.065 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.35 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.015 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>---</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-carne"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-frango">
+            <img src="imagens/frango.png" alt="Carne de Frango" />
+            <h3>Carne de Frango</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>31 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>3.6 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.07 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.3 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.012 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>---</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-frango"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-ovo">
+            <img src="imagens/ovos.png" alt="Ovos" />
+            <h3>Ovos</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>0.72 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>13 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>10 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.12 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.126 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.056</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>B12, D</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-ovo"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-cafe">
+            <img src="imagens/cafe.png" alt="Café" />
+            <h3>Café (sem açúcar)</h3>
+            <h6>100 ml</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.005 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.09 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>---</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-cafe"
+              placeholder="Quantidade em mililitros"
+            />
+          </div>
+          <div class="card" id="card-banana">
+            <img src="imagens/banana.png" alt="Bananas" />
+            <h3>Banana</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>22.84 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>1.09 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0.33 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>2.6 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>12.23 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.001 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.36 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.005 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>B6, C</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-banana"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-batata">
+            <img src="imagens/batata.png" alt="Batatas" />
+            <h3>Batatas</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>17.58 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>2.02 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0.1 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>2.2 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>1.25 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.006 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.425 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.01 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>C</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-batata"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-cenoura">
+            <img src="imagens/cenoura.png" alt="Cenoura" />
+            <h3>Cenoura</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>10 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>0.9 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>0.2 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>2.8 g</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>4.7 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.069 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.320 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.033 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>A, C</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-cenoura"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
+          <div class="card" id="card-queijo">
+            <img src="imagens/queijo.png" alt="Queijo" />
+            <h3>Queijo</h3>
+            <h6>100g</h6>
+            <table>
+              <tr>
+                <td>Carboidratos</td>
+                <td>3.83 g</td>
+              </tr>
+              <tr>
+                <td>Proteínas</td>
+                <td>25.96 g</td>
+              </tr>
+              <tr>
+                <td>Gorduras</td>
+                <td>20 g</td>
+              </tr>
+              <tr>
+                <td>Fibras</td>
+                <td>---</td>
+              </tr>
+              <tr>
+                <td>Açúcares</td>
+                <td>0.6 g</td>
+              </tr>
+              <tr>
+                <td>Sódio</td>
+                <td>0.528 g</td>
+              </tr>
+              <tr>
+                <td>Potássio</td>
+                <td>0.095 g</td>
+              </tr>
+              <tr>
+                <td>Calcio</td>
+                <td>0.732 g</td>
+              </tr>
+              <tr>
+                <td>Vitaminas</td>
+                <td>B6, D</td>
+              </tr>
+            </table>
+            <input
+              type="text"
+              id="input-queijo"
+              placeholder="Quantidade em gramas"
+            />
+          </div>
         </div>
-        <div class="tab-content" id="refeicoes"></div>
-        <div class="tab-content active" id="graficos">
-            <div class="graficos-tab">
-                <div class="radio-input">
-                    <label>
-                        <input value="value-1" name="select-tab" id="refeicao" type="radio" onclick="mudarGrafico('grafico-refeicao')" checked/>
-                        <span>Refeição</span>
-                    </label>
-                    <label>
-                        <input value="value-2" name="select-tab" id="semanal" type="radio" onclick="mudarGrafico('grafico-meta-semanal')"/>
-                        <span>Semanal</span>
-                    </label>
-                    <span class="selection"></span>
-                </div>       
-                <div class="grafico-tab-content active" id="grafico-refeicao">
-                    <div class="qtd-alimentos">
-                        <canvas id="grafico-qtd-alimentos"></canvas>
-                    </div>
-                    <div class="qtd-nutrientes">
-                        <canvas id="grafico-qtd-nutrientes"></canvas>
-                    </div>
-                    <div class="botoes" id="botoes-grafico">
-                        <button class="btn" id="btn-retornar" onclick="voltarAlimentos()">Retornar</button>
-                        <button class="btn" id="btn-adicionar-refeicao" onclick="adicionarRefeicao()">Adicionar Refeição</button>
-                    </div>
-                </div>
-                <div class="grafico-tab-content" id="grafico-meta-semanal">
-                </div>
+        <button class="btn" id="btn-avancar" onclick="atualizaRefeicao()">
+          Avançar
+        </button>
+      </div>
+      <div class="tab-content active" id="refeicoes">
+        <div class="botoes-refeicoes"> 
+            <div class="botoes-abas">
+            <button
+                class="btn-aba active"
+                id="btn-dia-1"
+                onclick="mudarDia(event, 'dia-1')"
+            >
+                Dia 1
+            </button>
+            <button
+                class="btn-aba"
+                id="btn-dia-2"
+                onclick="mudarDia(event, 'dia-2')"
+            >
+                Dia 2
+            </button>
+            <button
+                class="btn-aba"
+                id="btn-dia-3"
+                onclick="mudarDia(event, 'dia-3')"
+            >
+                Dia 3
+            </button>
+            <button
+                class="btn-aba"
+                id="btn-dia-4"
+                onclick="mudarDia(event, 'dia-4')"
+            >
+                Dia 4
+            </button>
+            <button
+                class="btn-aba"
+                id="btn-dia-5"
+                onclick="mudarDia(event, 'dia-5')"
+            >
+                Dia 5
+            </button>
+            <button
+                class="btn-aba"
+                id="btn-dia-6"
+                onclick="mudarDia(event, 'dia-6')"
+            >
+                Dia 6
+            </button>
+            <button
+                class="btn-aba"
+                id="btn-dia-7"
+                onclick="mudarDia(event, 'dia-7')"
+            >
+                Dia 7
+            </button>
+            </div>
+            <div class="botoes-refeicao">
+                <button class="btn" id="btn-pular-dia" onclick="pularDia()">Pular Dia</button>
+                <button class="btn" id="btn-ver-metas" onclick="verMetas()">Ver Metas</button>
             </div>
         </div>
-        
+        <div class="tabelas-refeicoes active" id="dia-1">a</div>
+        <div class="tabelas-refeicoes" id="dia-2">a4</div>
+        <div class="tabelas-refeicoes" id="dia-3">b</div>
+        <div class="tabelas-refeicoes" id="dia-4">a</div>
+        <div class="tabelas-refeicoes" id="dia-5">3</div>
+        <div class="tabelas-refeicoes" id="dia-6">232</div>
+        <div class="tabelas-refeicoes" id="dia-7"></div>
+      </div>
+      <div class="tab-content" id="graficos">
+        <div class="graficos-tab">
+          <div class="radio-input">
+            <label>
+              <input
+                value="value-1"
+                name="select-tab"
+                id="refeicao"
+                type="radio"
+                onclick="mudarGrafico('grafico-refeicao')"
+                checked
+              />
+              <span>Refeição</span>
+            </label>
+            <label>
+              <input
+                value="value-2"
+                name="select-tab"
+                id="semanal"
+                type="radio"
+                onclick="mudarGrafico('grafico-meta-semanal')"
+              />
+              <span>Semanal</span>
+            </label>
+            <span class="selection"></span>
+          </div>
+          <div class="grafico-tab-content active" id="grafico-refeicao">
+            <div class="qtd-alimentos">
+              <canvas id="grafico-qtd-alimentos"></canvas>
+            </div>
+            <div class="qtd-nutrientes">
+              <canvas id="grafico-qtd-nutrientes"></canvas>
+            </div>
+            <div class="botoes" id="botoes-grafico">
+              <button class="btn" id="btn-retornar" onclick="voltarAlimentos()">
+                Retornar
+              </button>
+              <button
+                class="btn"
+                id="btn-adicionar-refeicao"
+                onclick="adicionarRefeicao()"
+              >
+                Adicionar Refeição
+              </button>
+            </div>
+          </div>
+          <div class="grafico-tab-content" id="grafico-meta-semanal"></div>
+        </div>
+      </div>
     </main>
 
     <footer>
-        <div class="rodape">
+      <div class="rodape">
         <p>João Pedro (169616)</p>
         <a class="github" href="https://github.com/jpbdalmagro" target="_blank">
-            <svg viewBox="0 0 496 512" height="1em" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
-            </svg>
+          <svg
+            viewBox="0 0 496 512"
+            height="1em"
+            fill="#fff"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+            ></path>
+          </svg>
         </a>
         <p>& Cauã Santos (171072)</p>
-        <a class="github" href="https://github.com/cauafsantosdev" target="_blank">
-            <svg viewBox="0 0 496 512" height="1em" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
-            </svg>
+        <a
+          class="github"
+          href="https://github.com/cauafsantosdev"
+          target="_blank"
+        >
+          <svg
+            viewBox="0 0 496 512"
+            height="1em"
+            fill="#fff"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+            ></path>
+          </svg>
         </a>
-        </div>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

@@ -1,294 +1,343 @@
-html, body { /* Evita o efeito de scroll */
-    overscroll-behavior: none;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background: #131212;
+html,
+body {
+  /* Evita o efeito de scroll */
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #131212;
 }
 
 /* Cabeçalho */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    padding: 10px 20px;
-    box-shadow: 0 0 1px 2px #6c1ee9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 20px;
+  box-shadow: 0 0 1px 2px #6c1ee9;
 }
 
 /* Links do cabeçalho */
-.navbar button, .navbar p {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 16px;
+.navbar button,
+.navbar p {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    margin-left: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
 }
 
 #logo-img {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }
 
 .menu {
-    display: flex;
+  display: flex;
 }
 
 /* Animação quando passa o mouse por cima */
 .menu button {
-    border: 0;
-    background-color: black;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+  border: 0;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .menu button:hover {
-    background-color: #555;
+  background-color: #555;
 }
 
 .menu button:active {
-    background-color: #6113f1d0;
+  background-color: #6113f1d0;
 }
 
 .menu button.active {
-    background-color: #6113f1d0;
+  background-color: #6113f1d0;
 }
 
 /* Mudança entre abas */
 .tab-content {
-    display: none;
-    padding: 20px;
-    border: none;
-    border-top: none;
+  display: none;
+  padding: 20px;
+  border: none;
+  border-top: none;
 }
 
 .tab-content.active {
-    display: block;
+  display: block;
 }
 
 /* Conteúdo */
 /* Página de Alimentos */
 
-#alimentos{
-    text-align: center;
+#alimentos {
+  text-align: center;
 }
 
-#alimentos p{
-    font-size: large;
-    color: white;
+#alimentos p {
+  font-size: large;
+  color: white;
 }
 
-/* Cartões de alimentos*/	
+/* Cartões de alimentos*/
 
-.cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1rem;
-    margin: 0.313rem;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin: 0.313rem;
 }
 
-.card{
-    border-radius: 0.7em;
-    background: #9068c4;
-    width: 17.5rem;
-    height: 27rem;
-    margin-bottom: 0.625rem;
-    border: 0.063rem solid #631fbd;
+.card {
+  border-radius: 0.7em;
+  background: #9068c4;
+  width: 17.5rem;
+  height: 27rem;
+  margin-bottom: 0.625rem;
+  border: 0.063rem solid #631fbd;
 }
 
-.card:hover{
-    box-shadow: 0 0 0.016rem 0.156rem #6113f1d0;
+.card:hover {
+  box-shadow: 0 0 0.016rem 0.156rem #6113f1d0;
 }
 
-.card img{
-    margin: 0.094rem 3.125rem;
-    height: 11.25rem;
-    width: 11.25rem;   
+.card img {
+  margin: 0.094rem 3.125rem;
+  height: 11.25rem;
+  width: 11.25rem;
 }
 
-.card h3{
-    color: #260157;
-    margin: 0.313rem; 
-    width: 50%;
-    display: inline-block;
+.card h3 {
+  color: #260157;
+  margin: 0.313rem;
+  width: 50%;
+  display: inline-block;
 }
 
-#card-laranja h3{
-    width: 26%;
+#card-laranja h3 {
+  width: 26%;
 }
 
-#card-frango h3{
-    width: 54%;
-    text-align: left;
+#card-frango h3 {
+  width: 54%;
+  text-align: left;
 }
 
-#card-ovo h3{
-    width: 27%;
-    text-align: right;
+#card-ovo h3 {
+  width: 27%;
+  text-align: right;
 }
 
-#card-cafe h3{
-    width: 58%;
+#card-cafe h3 {
+  width: 58%;
 }
 
-#card-banana h3{
-    text-align: right;
-    width: 32%;
+#card-banana h3 {
+  text-align: right;
+  width: 32%;
 }
 
-#card-batata h3{
-    text-align: right;
-    width: 35%;
+#card-batata h3 {
+  text-align: right;
+  width: 35%;
 }
 
-#card-carne h3{
-    text-align: right;
-    width: 45%;
+#card-carne h3 {
+  text-align: right;
+  width: 45%;
 }
 
-#card-arroz h3{
-    text-align: right;
-    width: 45%;
+#card-arroz h3 {
+  text-align: right;
+  width: 45%;
 }
 
-#card-feijao h3{
-    text-align: right;
-    width: 50%;
+#card-feijao h3 {
+  text-align: right;
+  width: 50%;
 }
 
-#card-pao h3{
-    text-align: right;
-    width: 50%;
+#card-pao h3 {
+  text-align: right;
+  width: 50%;
 }
 
-#card-cenoura h3{
-    text-align: right;
-    width: 35%;
+#card-cenoura h3 {
+  text-align: right;
+  width: 35%;
 }
 
-#card-queijo h3{
-    text-align: right;
-    width: 35%;
+#card-queijo h3 {
+  text-align: right;
+  width: 35%;
 }
 
-.card h6{
-    margin: 0;
-    display: inline-block;
-    color: #341758;
-    font-weight: bold;
+.card h6 {
+  margin: 0;
+  display: inline-block;
+  color: #341758;
+  font-weight: bold;
 }
 
-.card table{
-    padding: 0.25rem 0.125rem;
-    width: 100%;
-    max-width: 16.25rem;
-    margin: 0 auto;
-    background-color: #4a2586d0;
-    border-radius: 0.5em;
-    border: 0.125rem solid #4d0588;
+.card table {
+  padding: 0.25rem 0.125rem;
+  width: 100%;
+  max-width: 16.25rem;
+  margin: 0 auto;
+  background-color: #4a2586d0;
+  border-radius: 0.5em;
+  border: 0.125rem solid #4d0588;
 }
 
-.card td{
-    color: white;
-    margin: 0;
-    font-size: 0.75em;
-    text-align: left;
-    padding: 0.063rem;
-    height: 0.813rem;
+.card td {
+  color: white;
+  margin: 0;
+  font-size: 0.75em;
+  text-align: left;
+  padding: 0.063rem;
+  height: 0.813rem;
 }
 
-.card td:nth-child(2){
-    text-align: right;
+.card td:nth-child(2) {
+  text-align: right;
 }
 
-.card input{
-    width: 8.75rem;
-    padding: 0.313rem;
-    margin: 0.313rem auto;
-    border-radius: 0.313rem;
-    border: 0.063rem solid #4d0588;
-    background-color: #3d1f6dd0;
-    color: white;
-    text-align: center;
+.card input {
+  width: 8.75rem;
+  padding: 0.313rem;
+  margin: 0.313rem auto;
+  border-radius: 0.313rem;
+  border: 0.063rem solid #4d0588;
+  background-color: #3d1f6dd0;
+  color: white;
+  text-align: center;
 }
 
-.card input:hover{
-    box-shadow: 0 0 0 0.063rem black;
+.card input:hover {
+  box-shadow: 0 0 0 0.063rem black;
 }
 
-.card ::placeholder{
-    color: #b8b6b6;
+.card ::placeholder {
+  color: #b8b6b6;
 }
 
 /* Botão de avançar */
 
-.btn{
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    background-color: #842cf7;
-    color: white;
-    border: 0.125rem solid #4d0588;
-    border-radius: 0.3rem;
-    font-weight: bold;
-    width: 15.625rem;
-    height: 2.5rem;
+.btn {
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background-color: #842cf7;
+  color: white;
+  border: 0.125rem solid #4d0588;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  width: 15.625rem;
+  height: 2.5rem;
 }
 
-.btn:hover{
-    box-shadow: 0 0 0.016rem 0.313rem #6113f1d0;
+.btn:hover {
+  box-shadow: 0 0 0.016rem 0.12rem #6113f1d0;
 }
 
-.btn:active{
-    background-color: #4f0fb6;
+.btn:active {
+  background-color: #4f0fb6;
 }
 
 /* Página de Refeições*/
+.botoes-refeicoes {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+
+/*Botões tabela*/
+.botoes-abas{
+  display: flex;
+  align-items: center;
+}
+
+.btn-aba{
+  margin: 0;
+  padding: 0;
+  height: 2rem;
+  width: 2rem;
+  font-size: 10px;
+  background-color: #842cf7;
+  border: 0.125rem solid #4d0588;
+  color: white;
+  font-weight: bold;;
+}
+
+.btn-aba:hover{
+  background-color: #5e06a5;
+}
+
+.btn-aba:active{
+  background-color: #8532c9;
+}
+
+.btn-aba.active{
+  background-color: #8532c9;
+}
+
+/*Tabelas*/
+.tabelas-refeicoes.active{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.tabelas-refeicoes {
+  display: none;
+}
 
 /* Página de Gráficos*/
-
 .graficos-tab {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
-#grafico-refeicao{
-    align-items: center;
+#grafico-refeicao {
+  align-items: center;
 }
 
-.qtd-alimentos{
-    width: 55rem;
-    height: 25rem;
-    margin-left: 32px;
-    margin-top: 5px;
-    margin-bottom: 70px;
+.qtd-alimentos {
+  width: 55rem;
+  height: 25rem;
+  margin-left: 32px;
+  margin-top: 5px;
+  margin-bottom: 70px;
 }
 
-.qtd-nutrientes{
-    width: 55rem;
-    height: 50rem;
-    margin-left: 32px;
+.qtd-nutrientes {
+  width: 55rem;
+  height: 50rem;
+  margin-left: 32px;
 }
 
-.botoes.active{
-    display: flex;
-    justify-content: center;
-    margin: 10px;
+.botoes.active {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
 
 .botoes {
-    display: none;
+  display: none;
 }
 
 /*Troca de abas*/
@@ -296,97 +345,97 @@ html, body { /* Evita o efeito de scroll */
 /* Radio buttons */
 
 .radio-input input {
-    display: none;
+  display: none;
 }
 
 .radio-input {
-    --container_width: 300px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    background-color: #c7c6c6;
-    color: #000000;
-    width: var(--container_width);
-    overflow: hidden;
-    border: 0.125rem solid #6c1ee9;
-    margin: 0 auto;
+  --container_width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #c7c6c6;
+  color: #000000;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 0.125rem solid #6c1ee9;
+  margin: 0 auto;
 }
 
 .radio-input label {
-    width: 100%;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    font-weight: 600;
-    letter-spacing: -1px;
-    font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: 600;
+  letter-spacing: -1px;
+  font-size: 14px;
 }
 
 .selection {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: calc(var(--container_width) / 2);
-    z-index: 0;
-    left: 0;
-    top: 0;
-    transition: 0.15s ease;
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 2);
+  z-index: 0;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
 }
 
 .radio-input label:has(input:checked) {
-    color: #fff;
+  color: #fff;
 }
 
 .radio-input label:has(input:checked) ~ .selection {
-    background-color: #6c1ee9;
-    display: inline-block;
+  background-color: #6c1ee9;
+  display: inline-block;
 }
 
 .radio-input label:nth-child(1):has(input:checked) ~ .selection {
-    transform: translateX(calc(var(--container_width) * 0 / 2));
+  transform: translateX(calc(var(--container_width) * 0 / 2));
 }
 
 .radio-input label:nth-child(2):has(input:checked) ~ .selection {
-    transform: translateX(calc(var(--container_width) * 1 / 2));
+  transform: translateX(calc(var(--container_width) * 1 / 2));
 }
 
 /* Abas */
 .grafico-tab-content {
-    display: none;
-    padding: 20px;
-    border: none;
-    border-top: none;
-    min-height: 3.125rem;
-    z-index: 1;
+  display: none;
+  padding: 20px;
+  border: none;
+  border-top: none;
+  min-height: 3.125rem;
+  z-index: 1;
 }
 
 .grafico-tab-content.active {
-    display: block;
-    z-index: 2;
+  display: block;
+  z-index: 2;
 }
 
 /* Rodapé */
 
 .rodape {
-    width: 100%;
-    display: flex;
-    justify-content:center;
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px #6c1ee9;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px #6c1ee9;
 }
 
 .github {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    padding: auto;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: auto;
 }
