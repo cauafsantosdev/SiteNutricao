@@ -37,13 +37,22 @@ let pieChart = null;
 const gradients = [
     '#663399',
     '#4f0fb6', 
-    '#6A0DAD',
+    '#900DFC',
     '#4B0082', 
     '#5E0B99', 
     '#8A2BE2', 
     '#2E0249', 
-    '#4B0082'  
+    '#7510ff'  
 ];
+
+const idsTable=[
+	["1-c","1-p","1-g","1-f","1-a","1-s","1-po","1-ca"],
+	["2-c","2-p","2-g","2-f","2-a","2-s","2-po","2-ca"],
+	["3-c","3-p","3-g","3-f","3-a","3-s","3-po","3-ca"],
+	["4-c","4-p","4-g","4-f","4-a","4-s","4-po","4-ca"]
+]
+
+var i = 0;
 
 const alimentos = [
   {
@@ -224,22 +233,7 @@ function avancar(tabId) {
   document.getElementById("botoes-grafico").classList.add("active");
 }
 
-// Trocar tabela de refeições
-function mudarDia(event, tabId) {
-const buttons = document.querySelectorAll(".btn-aba");
-buttons.forEach((button) => button.classList.remove("active"));
-
-event.currentTarget.classList.add("active");
-
-const contents = document.querySelectorAll(".tabelas-refeicoes");
-contents.forEach((content) => content.classList.remove("active"));
-
-document.getElementById(tabId).classList.add("active");
-
-}
-
-// Trocar entre os tipos de gráficos
-
+// Trocar entre os tipos de gráficos na aba de gráficos(semanal, refeição)
 function mudarGrafico(chartId) {
   const graficoTabContents = document.querySelectorAll(".grafico-tab-content");
   graficoTabContents.forEach((content) => {
@@ -249,8 +243,7 @@ function mudarGrafico(chartId) {
   document.getElementById(chartId).classList.add("active");
 }
 
-//Voltar para a seleção de alimentos
-
+//	Voltar para a seleção de alimentos caso o usuário queira mudar a refeição
 function voltarAlimentos() {
   const buttons = document.querySelectorAll(".tab-button");
   buttons.forEach((button) => button.classList.remove("active"));
@@ -264,7 +257,6 @@ function voltarAlimentos() {
 }
 
 // Função para adicionar os alimentos na refeição
-
 function adicionarRefeicao() {
   const buttons = document.querySelectorAll(".tab-button");
   buttons.forEach((button) => button.classList.remove("active"));
@@ -276,17 +268,63 @@ function adicionarRefeicao() {
 
   document.getElementById("refeicoes").classList.add("active");
 
-  consumoDiario["Carboidratos"] += carboidratos;
-  consumoDiario["Proteínas"] += proteinas;
-  consumoDiario["Gorduras"] += gorduras;
-  consumoDiario["Fibras"] += fibras;
-  consumoDiario["Açúcares"] += acucares;
-  consumoDiario["Sódio"] += sodio;
-  consumoDiario["Potássio"] += potassio;
-  consumoDiario["Cálcio"] += calcio;
+  mostrarRefeicao();
 }
 
-//
+// Função para mostrar os nutrientes da refeição
+function mostrarRefeicao(){
+	let refeicao = [
+		carboidratos,
+		proteinas,
+		gorduras,
+		fibras,
+		acucares,
+		sodio,
+		potassio,
+		calcio
+	]
+
+	for(let j=0;j<idsTable[0].length;j++){
+		$("#"+idsTable[i][j]).text(refeicao[j].toFixed(2) + "g");
+	}
+
+	i++;
+}
+
+// Pular o dia
+function pularDia() {
+	alert('Em desenvolvimento');
+}
+
+//Ir para a página de metas
+function verMetas() {
+	alert('Em desenvolvimento');
+}
+
+// Função para salvar a refeição
+function salvarRefeicao() {
+	alert("Refeição salva com sucesso!");
+	const buttons = document.querySelectorAll(".tab-button");
+	buttons.forEach((button) => button.classList.remove("active"));
+  
+	document.getElementById("link-alimentos").classList.add("active");
+  
+	const contents = document.querySelectorAll(".tab-content");
+	contents.forEach((content) => content.classList.remove("active"));
+  
+	document.getElementById("alimentos").classList.add("active");
+  
+	consumoDiario["Carboidratos"] += carboidratos;
+	consumoDiario["Proteínas"] += proteinas;
+	consumoDiario["Gorduras"] += gorduras;
+	consumoDiario["Fibras"] += fibras;
+	consumoDiario["Açúcares"] += acucares;
+	consumoDiario["Sódio"] += sodio;
+	consumoDiario["Potássio"] += potassio;
+	consumoDiario["Cálcio"] += calcio;
+  }
+
+// Captar os inputs dos cards de alimentos somar e mandar para os gráfios
 function atualizaRefeicao() {
   carboidratos = 0;
   proteinas = 0;
@@ -318,7 +356,7 @@ function atualizaRefeicao() {
 
 // Graficos
 
-// Gráfico de Porcentagem de Nutrientes
+// Gráfico de porcentagem de nutrientes e quantidade de alimentos
 
 function updateChart() {
   const consumidos_nomes = Object.keys(consumidos);
@@ -395,7 +433,7 @@ function updateChart() {
       .getContext("2d");
 
     pieChart = new Chart(pie_ctx, {
-      type: "pie",
+      type: "doughnut",
       data: {
         labels: [
           "Carboidratos",

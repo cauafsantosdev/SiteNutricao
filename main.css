@@ -257,50 +257,48 @@ body {
 /* Página de Refeições*/
 .botoes-refeicoes {
   display: flex;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-
-/*Botões tabela*/
-.botoes-abas{
-  display: flex;
-  align-items: center;
-}
-
-.btn-aba{
-  margin: 0;
-  padding: 0;
-  height: 2rem;
-  width: 2rem;
-  font-size: 10px;
-  background-color: #842cf7;
-  border: 0.125rem solid #4d0588;
-  color: white;
-  font-weight: bold;;
-}
-
-.btn-aba:hover{
-  background-color: #5e06a5;
-}
-
-.btn-aba:active{
-  background-color: #8532c9;
-}
-
-.btn-aba.active{
-  background-color: #8532c9;
-}
-
-/*Tabelas*/
-.tabelas-refeicoes.active{
-  display: flex;
   justify-content: center;
   margin: 10px;
 }
 
-.tabelas-refeicoes {
-  display: none;
+/*Tabela*/
+
+.tabela-refeicao{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.tabela-refeicao table{
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 50rem;
+  background-color: #4a2586d0;
+  border-radius: 0.5em;
+  border: 0.125rem solid #4d0588;
+}
+
+.tabela-refeicao th{
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.625rem;
+  text-align: center;
+  background-color: #381c66e8;
+}
+
+.tabela-refeicao td{
+  color: white;
+  font-size: 1rem;
+  padding: 0.625rem;
+  text-align: center;
+  border: 0.125rem solid #4d0588;
+}
+
+.tabela-refeicao button{
+  margin: 0.313rem;
+  height: 3rem;
+  width: 5rem;
 }
 
 /* Página de Gráficos*/
