@@ -3,30 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nutrição</title>
+    <title>Nutri Site</title>
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <div class="navbar">
         <div class="logo">
-          <img id="logo-img" src="imagens/nutrisite_logo.png" alt="Logo" />
-          <p>Nutri Site</p>
+          <img id="logo-img" src="imagens/logo.jpg" alt="Logo" />
+          <p class="playfair-display-titulo">Nutri Site</p>
         </div>
         <div class="menu">
           <button
-            class="tab-button"
+            class="tab-button active"
             id="link-alimentos"
             onclick="mudarAba(event, 'alimentos')"
           >
             Alimentos
           </button>
           <button
-            class="tab-button active"
+            class="tab-button"
             id="link-refeicoes"
             onclick="mudarAba(event, 'refeicoes')"
           >
@@ -43,7 +48,7 @@
       </div>
     </header>
     <main>
-      <div class="tab-content" id="alimentos">
+      <div class="tab-content active" id="alimentos">
         <p>Selecione os alimentos que deseja adicionar a sua refeição</p>
         <div class="cards">
           <div class="card" id="card-arroz">
@@ -628,12 +633,13 @@
           Avançar
         </button>
       </div>
-      <div class="tab-content active" id="refeicoes">
+      <div class="tab-content" id="refeicoes">
         <div class="botoes-refeicoes"> 
-                <button class="btn" id="btn-pular-dia" onclick="pularDia()">Pular Dia</button>
+                <button class="btn" id="btn-pular-dia" onclick="pularDia(false)">Pular Dia</button>
                 <button class="btn" id="btn-ver-metas" onclick="verMetas()">Ver Metas</button>
         </div>
         <div class="tabela-refeicao" id="dia-1">
+            <h2 id="dia">Refeições do Dia 1</h2>
             <table>
                 <tr>
                     <th>Refeição</th>
@@ -692,6 +698,99 @@
                 </tr>
             </table>
             <button class="btn" onclick="salvarRefeicao()">Salvar Refeição</button>
+        </div>        
+        <div class="tabela-semanal">
+            <h2>Consumo Semanal</h2>
+                <table>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Carboidratos</th>
+                        <th>Proteínas</th>
+                        <th>Gorduras</th>
+                        <th>Fibras</th>
+                        <th>Açúcares</th>
+                        <th>Sódio</th>
+                        <th>Potássio</th>
+                        <th>Cálcio</th>
+                    </tr>
+                    <tr>
+                        <td>Dia 1</td>
+                        <td id="seg-c"></td>
+                        <td id="seg-p"></td>
+                        <td id="seg-g"></td>
+                        <td id="seg-f"></td>
+                        <td id="seg-a"></td>
+                        <td id="seg-s"></td>
+                        <td id="seg-po"></td>
+                        <td id="seg-ca"></td>
+                    </tr>
+                    <tr>
+                        <td>Dia 2</td>
+                        <td id="ter-c"></td>
+                        <td id="ter-p"></td>
+                        <td id="ter-g"></td>
+                        <td id="ter-f"></td>
+                        <td id="ter-a"></td>
+                        <td id="ter-s"></td>
+                        <td id="ter-po"></td>
+                        <td id="ter-ca"></td>
+                    </tr>
+                    <tr>
+                        <td>Dia 3</td>
+                        <td id="qua-c"></td>
+                        <td id="qua-p"></td>
+                        <td id="qua-g"></td>
+                        <td id="qua-f"></td>
+                        <td id="qua-a"></td>
+                        <td id="qua-s"></td>
+                        <td id="qua-po"></td>
+                        <td id="qua-ca"></td>
+                    </tr>
+                    <tr>
+                        <td>Dia 4</td>
+                        <td id="qui-c"></td>
+                        <td id="qui-p"></td>
+                        <td id="qui-g"></td>
+                        <td id="qui-f"></td>
+                        <td id="qui-a"></td>
+                        <td id="qui-s"></td>
+                        <td id="qui-po"></td>
+                        <td id="qui-ca"></td>
+                    </tr>
+                    <tr>
+                        <td>Dia 5</td>
+                        <td id="sex-c"></td>
+                        <td id="sex-p"></td>
+                        <td id="sex-g"></td>
+                        <td id="sex-f"></td>
+                        <td id="sex-a"></td>
+                        <td id="sex-s"></td>
+                        <td id="sex-po"></td>
+                        <td id="sex-ca"></td>
+                    </tr>
+                    <tr>
+                        <td>Dia 6</td>
+                        <td id="sab-c"></td>
+                        <td id="sab-p"></td>
+                        <td id="sab-g"></td>
+                        <td id="sab-f"></td>
+                        <td id="sab-a"></td>
+                        <td id="sab-s"></td>
+                        <td id="sab-po"></td>
+                        <td id="sab-ca"></td>
+                    </tr>
+                    <tr>
+                        <td>Dia 7</td>
+                        <td id="dom-c"></td>
+                        <td id="dom-p"></td>
+                        <td id="dom-g"></td>
+                        <td id="dom-f"></td>
+                        <td id="dom-a"></td>
+                        <td id="dom-s"></td>
+                        <td id="dom-po"></td>
+                        <td id="dom-ca"></td>
+                    </tr>
+                </table>
         </div>
       </div>
       <div class="tab-content" id="graficos">
@@ -740,9 +839,38 @@
               </button>
             </div>
           </div>
-          <div class="grafico-tab-content" id="grafico-meta-semanal"></div>
-        </div>
-      </div>
+          <div class="grafico-tab-content" id="grafico-meta-semanal">
+            <div class="inputs-metas">
+            <div class="inputs">
+                <table>
+                <caption>Metas Nutricionas Diárias(em g)</caption>
+                    <tr>
+                        <td>Carboidratos</td>
+                        <td>Proteínas</td>
+                        <td>Gorduras</td>
+                        <td>Fibras</td>
+                        <td>Açúcares</td>
+                        <td>Sódio</td>
+                        <td>Potássio</td>
+                        <td>Cálcio</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="meta-c" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-p" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-g" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-f" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-a" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-s" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-po" placeholder="Meta em gramas"></td>
+                        <td><input type="text" id="meta-ca" placeholder="Meta em gramas"></td>
+                </table> 
+            </div>
+            <button class="btn" id="btn-salvar-metas" onclick="salvarMetas()">Salvar Metas</button>
+            </div>
+            <div class="grafico-semanal">
+              <canvas id="grafico-metas"></canvas>
+            </div>
+          </div>
     </main>
     <footer>
       <div class="rodape">

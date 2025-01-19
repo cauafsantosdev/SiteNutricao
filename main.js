@@ -7,6 +7,8 @@ var sodio = 0;
 var potassio = 0;
 var calcio = 0;
 
+var refeicao = [];
+
 var consumoDiario = {
   Carboidratos: 0,
   Proteínas: 0,
@@ -30,28 +32,53 @@ var consumoSemanal = {
 };
 
 var consumidos = new Object();
+var metas = [];
+var pct = [];
 
 let barChart = null;
 let pieChart = null;
+let lineChart = null;
 
 const gradients = [
-    '#663399',
-    '#4f0fb6', 
-    '#900DFC',
-    '#4B0082', 
-    '#5E0B99', 
-    '#8A2BE2', 
-    '#2E0249', 
-    '#7510ff'  
+  "#663399",
+  "#4f0fb6",
+  "#900DFC",
+  "#4B0082",
+  "#5E0B99",
+  "#8A2BE2",
+  "#2E0249",
+  "#7510ff",
 ];
 
-const idsTable=[
-	["1-c","1-p","1-g","1-f","1-a","1-s","1-po","1-ca"],
-	["2-c","2-p","2-g","2-f","2-a","2-s","2-po","2-ca"],
-	["3-c","3-p","3-g","3-f","3-a","3-s","3-po","3-ca"],
-	["4-c","4-p","4-g","4-f","4-a","4-s","4-po","4-ca"]
-]
+const idsTable = [
+  ["1-c", "1-p", "1-g", "1-f", "1-a", "1-s", "1-po", "1-ca"],
+  ["2-c", "2-p", "2-g", "2-f", "2-a", "2-s", "2-po", "2-ca"],
+  ["3-c", "3-p", "3-g", "3-f", "3-a", "3-s", "3-po", "3-ca"],
+  ["4-c", "4-p", "4-g", "4-f", "4-a", "4-s", "4-po", "4-ca"],
+];
 
+const idsTableSemana = [
+  ["seg-c", "seg-p", "seg-g", "seg-f", "seg-a", "seg-s", "seg-po", "seg-ca"],
+  ["ter-c", "ter-p", "ter-g", "ter-f", "ter-a", "ter-s", "ter-po", "ter-ca"],
+  ["qua-c", "qua-p", "qua-g", "qua-f", "qua-a", "qua-s", "qua-po", "qua-ca"],
+  ["qui-c", "qui-p", "qui-g", "qui-f", "qui-a", "qui-s", "qui-po", "qui-ca"],
+  ["sex-c", "sex-p", "sex-g", "sex-f", "sex-a", "sex-g", "sex-po", "sex-ca"],
+  ["sab-c", "sab-p", "sab-g", "sab-f", "sab-a", "sab-s", "sab-po", "sab-ca"],
+  ["dom-c", "dom-p", "dom-g", "dom-f", "dom-a", "dom-s", "dom-po", "dom-ca"],
+];
+
+const idsMetas = [
+  "meta-c",
+  "meta-p",
+  "meta-g",
+  "meta-f",
+  "meta-a",
+  "meta-s",
+  "meta-po",
+  "meta-ca",
+];
+
+var dia = 0;
 var i = 0;
 
 const alimentos = [
@@ -272,57 +299,131 @@ function adicionarRefeicao() {
 }
 
 // Função para mostrar os nutrientes da refeição
-function mostrarRefeicao(){
-	let refeicao = [
-		carboidratos,
-		proteinas,
-		gorduras,
-		fibras,
-		acucares,
-		sodio,
-		potassio,
-		calcio
-	]
-
-	for(let j=0;j<idsTable[0].length;j++){
-		$("#"+idsTable[i][j]).text(refeicao[j].toFixed(2) + "g");
-	}
-
-	i++;
+function mostrarRefeicao() {
+  console.log(refeicao);
+  for (let j = 0; j < idsTable[0].length; j++) {
+    $("#" + idsTable[i][j]).text(refeicao[j].toFixed(2) + "g");
+  }
 }
 
 // Pular o dia
-function pularDia() {
-	alert('Em desenvolvimento');
+function pularDia(clicado) {
+  let confirmacao = false;
+
+  if (!clicado) {
+    confirmacao = confirm("Tem certeza que deseja pular o dia?");
+  } else {
+    confirmacao = true;
+  }
+
+  if (confirmacao) {
+    consumoSemanal["Carboidratos"].push(consumoDiario["Carboidratos"]);
+    consumoSemanal["Proteínas"].push(consumoDiario["Proteínas"]);
+    consumoSemanal["Gorduras"].push(consumoDiario["Gorduras"]);
+    consumoSemanal["Fibras"].push(consumoDiario["Fibras"]);
+    consumoSemanal["Açúcares"].push(consumoDiario["Açúcares"]);
+    consumoSemanal["Sódio"].push(consumoDiario["Sódio"]);
+    consumoSemanal["Potássio"].push(consumoDiario["Potássio"]);
+    consumoSemanal["Cálcio"].push(consumoDiario["Cálcio"]);
+
+    consumoDiario = {
+      Carboidratos: 0,
+      Proteínas: 0,
+      Gorduras: 0,
+      Fibras: 0,
+      Açúcares: 0,
+      Sódio: 0,
+      Potássio: 0,
+      Cálcio: 0,
+    };
+
+    i = 0;
+    zerarTabela();
+    adicionarASemana();
+
+    $("#dia").text("Refeições do dia " + (dia + 1));
+  }
 }
 
 //Ir para a página de metas
 function verMetas() {
-	alert('Em desenvolvimento');
+  const buttons = document.querySelectorAll(".tab-button");
+  buttons.forEach((button) => button.classList.remove("active"));
+
+  document.getElementById("link-graficos").classList.add("active");
+
+  var contents = document.querySelectorAll(".tab-content");
+  contents.forEach((content) => content.classList.remove("active"));
+
+  contents = document.querySelectorAll(".grafico-tab-content");
+  contents.forEach((content) => content.classList.remove("active"));
+
+  document.getElementById("graficos").classList.add("active");
+  document.getElementById("grafico-meta-semanal").classList.add("active");
+  document.getElementById("semanal").checked = true;
 }
 
 // Função para salvar a refeição
 function salvarRefeicao() {
-	alert("Refeição salva com sucesso!");
-	const buttons = document.querySelectorAll(".tab-button");
-	buttons.forEach((button) => button.classList.remove("active"));
-  
-	document.getElementById("link-alimentos").classList.add("active");
-  
-	const contents = document.querySelectorAll(".tab-content");
-	contents.forEach((content) => content.classList.remove("active"));
-  
-	document.getElementById("alimentos").classList.add("active");
-  
-	consumoDiario["Carboidratos"] += carboidratos;
-	consumoDiario["Proteínas"] += proteinas;
-	consumoDiario["Gorduras"] += gorduras;
-	consumoDiario["Fibras"] += fibras;
-	consumoDiario["Açúcares"] += acucares;
-	consumoDiario["Sódio"] += sodio;
-	consumoDiario["Potássio"] += potassio;
-	consumoDiario["Cálcio"] += calcio;
+  let c = 0;
+
+  for (let j = 0; j < refeicao.length; j++) {
+    if (refeicao[j] != 0) {
+      c++;
+    }
   }
+
+  console.log(c);
+
+  if (c == 0) {
+    alert("Nenhum alimento foi consumido");
+    return;
+  } else {
+    alert("Refeição salva com sucesso!");
+    i++;
+  }
+
+  const buttons = document.querySelectorAll(".tab-button");
+  buttons.forEach((button) => button.classList.remove("active"));
+
+  document.getElementById("link-alimentos").classList.add("active");
+
+  const contents = document.querySelectorAll(".tab-content");
+  contents.forEach((content) => content.classList.remove("active"));
+
+  document.getElementById("alimentos").classList.add("active");
+
+  consumoDiario["Carboidratos"] += carboidratos;
+  consumoDiario["Proteínas"] += proteinas;
+  consumoDiario["Gorduras"] += gorduras;
+  consumoDiario["Fibras"] += fibras;
+  consumoDiario["Açúcares"] += acucares;
+  consumoDiario["Sódio"] += sodio;
+  consumoDiario["Potássio"] += potassio;
+  consumoDiario["Cálcio"] += calcio;
+
+  if (i == 4) {
+    pularDia(true);
+  }
+}
+
+// Zerar a tabela de alimentos
+function zerarTabela() {
+  for (let j = 0; j < idsTable[0].length; j++) {
+    for (let k = 0; k < idsTable.length; k++) {
+      $("#" + idsTable[k][j]).text("");
+    }
+  }
+}
+
+function adicionarASemana() {
+  let consumo = Object.values(consumoSemanal);
+
+  for (let j = 0; j < idsTableSemana[0].length; j++) {
+    $("#" + idsTableSemana[dia][j]).text(consumo[j][dia].toFixed(2) + "g");
+  }
+  dia++;
+}
 
 // Captar os inputs dos cards de alimentos somar e mandar para os gráfios
 function atualizaRefeicao() {
@@ -348,10 +449,49 @@ function atualizaRefeicao() {
     sodio += (alimento.sodio * quantidade) / 1000;
     potassio += (alimento.potassio * quantidade) / 1000;
     calcio += (alimento.calcio * quantidade) / 1000;
-	});
+  });
 
   updateChart();
   avancar("graficos");
+
+  refeicao = [
+    carboidratos,
+    proteinas,
+    gorduras,
+    fibras,
+    acucares,
+    sodio,
+    potassio,
+    calcio,
+  ];
+}
+
+function salvarMetas() {
+  for (let c = 0; c < idsMetas.length; c++) {
+    let meta = $("#" + idsMetas[c]).val();
+    if (meta == "") {
+      alert("Preencha todas as metas");
+      return;
+    }
+    metas.push(meta);
+  }
+  calculaPct();
+  graficoMetas();
+}
+
+function calculaPct() {
+  let consumo = Object.values(consumoSemanal);
+
+  for (let c = 0; c < metas.length; c++) {
+    let meta = metas[c];
+    let pctNutriente = [];
+    for (let d = 0; d < consumo.length; d++) {
+      let pct = (consumo[c][d] / meta) * 100;
+      pctNutriente.push(pct);
+    }
+    pct.push(pctNutriente);
+  }
+  console.log(pct);
 }
 
 // Graficos
@@ -361,7 +501,7 @@ function atualizaRefeicao() {
 function updateChart() {
   const consumidos_nomes = Object.keys(consumidos);
   const consumidos_valores = Object.values(consumidos);
-  
+
   consumidos = new Object();
 
   if (barChart) {
@@ -376,57 +516,59 @@ function updateChart() {
       .getElementById("grafico-qtd-alimentos")
       .getContext("2d");
 
-        barChart = new Chart(bar_ctx, {
-            type: 'bar',
-            data: {
-                labels: consumidos_nomes,
-                datasets: [{
-                    label: 'Quantidade em g',
-                    data: consumidos_valores,
-                    borderWidth: 1,
-                    backgroundColor: 'rgba(98, 0, 255, 0.4)',
-                    borderColor: 'rgb(97, 0, 252)',
-                    borderWidth: '1px',
-                    hoverBackgroundColor: 'rgba(61, 3, 155, 0.7)',
-                    hoverBorderColor: 'rgb(98, 1, 255)',
-                    hoverBorderWidth: '3px',
-                }]
+    barChart = new Chart(bar_ctx, {
+      type: "bar",
+      data: {
+        labels: consumidos_nomes,
+        datasets: [
+          {
+            label: "Quantidade em g",
+            data: consumidos_valores,
+            borderWidth: 1,
+            backgroundColor: "rgba(98, 0, 255, 0.4)",
+            borderColor: "rgb(97, 0, 252)",
+            borderWidth: "1px",
+            hoverBackgroundColor: "rgba(61, 3, 155, 0.7)",
+            hoverBorderColor: "rgb(98, 1, 255)",
+            hoverBorderWidth: "3px",
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: "white",
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white',
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.2)',
-                            lineWidth: 1,
-                            drawOnChartArea: true,
-                        },
-                        ticks: {
-                            color: 'white',
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.2)',
-                            lineWidth: 1,
-                            drawOnChartArea: true,
-                        },
-                        ticks: {
-                            color: 'white',
-                        }
-                    }
-                },
-            }
-        });
+          },
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: {
+              color: "rgba(255, 255, 255, 0.2)",
+              lineWidth: 1,
+              drawOnChartArea: true,
+            },
+            ticks: {
+              color: "white",
+            },
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: "rgba(255, 255, 255, 0.2)",
+              lineWidth: 1,
+              drawOnChartArea: true,
+            },
+            ticks: {
+              color: "white",
+            },
+          },
+        },
+      },
+    });
 
     const pie_ctx = document
       .getElementById("grafico-qtd-nutrientes")
@@ -489,6 +631,162 @@ function updateChart() {
     document.getElementById("grafico-refeicao").classList.add("active");
   });
 }
+
+function graficoMetas() {
+  let labels = [
+    "Carboidratos",
+    "Proteínas",
+    "Gorduras",
+    "Fibras",
+    "Açúcares",
+    "Sódio",
+    "Potássio",
+    "Cálcio",
+  ];
+
+  if (lineChart) {
+    lineChart.destroy();
+  }
+
+  console.log(pct);
+
+  requestAnimationFrame(() => {
+    const line_ctx = document.getElementById("grafico-metas").getContext("2d");
+
+    lineChart = new Chart(line_ctx, {
+      type: "line",
+      data: {
+        labels: ["Dia 1", "Dia 2", "Dia 3", "Dia 4", "Dia 5", "Dia 6", "Dia 7"],
+        datasets: [
+          {
+            label: labels[0],
+            data: pct[0],
+            borderColor: gradients[0],
+            backgroundColor: gradients[0],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[0],
+            pointBorderColor: gradients[0],
+          },
+          {
+            label: labels[1],
+            data: pct[1],
+            borderColor: gradients[1],
+            backgroundColor: gradients[1],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[1],
+            pointBorderColor: gradients[1],
+          },
+          {
+            label: labels[2],
+            data: pct[2],
+            borderColor: gradients[2],
+            backgroundColor: gradients[2],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[2],
+            pointBorderColor: gradients[2],
+          },
+          {
+            label: labels[3],
+            data: pct[3],
+            borderColor: gradients[3],
+            backgroundColor: gradients[3],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[3],
+            pointBorderColor: gradients[3],
+          },
+          {
+            label: labels[4],
+            data: pct[4],
+            borderColor: gradients[4],
+            backgroundColor: gradients[4],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[4],
+            pointBorderColor: gradients[4],
+          },
+          {
+            label: labels[5],
+            data: pct[5],
+            borderColor: gradients[5],
+            backgroundColor: gradients[5],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[5],
+            pointBorderColor: gradients[5],
+          },
+          {
+            label: labels[6],
+            data: pct[6],
+            borderColor: gradients[6],
+            backgroundColor: gradients[6],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[6],
+            pointBorderColor: gradients[6],
+          },
+          {
+            label: labels[7],
+            data: pct[7],
+            borderColor: gradients[7],
+            backgroundColor: gradients[7],
+            fill: false,
+            lineTension: 0,
+            pointRadius: 5,
+            pointBackgroundColor: gradients[7],
+            pointBorderColor: gradients[7],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: "white",
+            },
+          },
+        },
+        scales: {
+          x: {
+            beginAtZero: true,
+            grid: {
+              color: "rgba(255, 255, 255, 0.2)",
+              lineWidth: 1,
+              drawOnChartArea: true,
+            },
+            ticks: {
+              color: "white",
+            },
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: "rgba(255, 255, 255, 0.2)",
+              lineWidth: 1,
+              drawOnChartArea: true,
+            },
+            ticks: {
+              color: "white",
+            },
+          },
+        },
+      },
+    });
+  });
+}
+
+document.getElementById("refeicao").checked = true;
 
 $(document).ready(function () {
   $("input[type='text']").blur(function () {

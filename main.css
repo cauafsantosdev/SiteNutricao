@@ -9,6 +9,15 @@ body {
   background: #131212;
 }
 
+/*Fonte*/
+
+.playfair-display-titulo {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Cabeçalho */
 .navbar {
   display: flex;
@@ -255,6 +264,14 @@ body {
 }
 
 /* Página de Refeições*/
+#refeicoes {
+  text-align: center;
+}
+
+#refeicoes h2 {
+  color: white;
+}
+
 .botoes-refeicoes {
   display: flex;
   justify-content: center;
@@ -263,14 +280,49 @@ body {
 
 /*Tabela*/
 
-.tabela-refeicao{
+.tabela-refeicao {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  flex-direction: column;
+  margin: 2.85rem auto 1.2rem;
 }
 
-.tabela-refeicao table{
+.tabela-refeicao table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 50rem;
+  background-color: #4a2586d0;
+  border-radius: 0.5em;
+  border: 0.125rem solid #4d0588;
+  margin-bottom: 2rem;
+}
+
+.tabela-refeicao th {
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.625rem;
+  text-align: center;
+  background-color: #381c66e8;
+}
+
+.tabela-refeicao td {
+  color: white;
+  font-size: 1rem;
+  padding: 0.625rem;
+  text-align: center;
+  border: 0.125rem solid #4d0588;
+}
+
+.tabela-semanal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2.85rem auto 15.2rem;
+}
+
+.tabela-semanal table {
   border-collapse: collapse;
   width: 100%;
   max-width: 50rem;
@@ -279,7 +331,7 @@ body {
   border: 0.125rem solid #4d0588;
 }
 
-.tabela-refeicao th{
+.tabela-semanal th {
   color: white;
   font-size: 1.25rem;
   padding: 0.625rem;
@@ -287,18 +339,12 @@ body {
   background-color: #381c66e8;
 }
 
-.tabela-refeicao td{
+.tabela-semanal td {
   color: white;
   font-size: 1rem;
   padding: 0.625rem;
   text-align: center;
   border: 0.125rem solid #4d0588;
-}
-
-.tabela-refeicao button{
-  margin: 0.313rem;
-  height: 3rem;
-  width: 5rem;
 }
 
 /* Página de Gráficos*/
@@ -339,7 +385,6 @@ body {
 }
 
 /*Troca de abas*/
-
 /* Radio buttons */
 
 .radio-input input {
@@ -416,6 +461,49 @@ body {
   z-index: 2;
 }
 
+/* Inputs de Metas */
+
+.inputs-metas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2.85rem auto 1.2rem;
+}
+
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2.85rem auto 1.2rem;
+}
+
+.inputs caption {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0.625rem;
+  text-align: center;
+}
+
+.inputs td {
+  color: white;
+  font-size: 1.25rem;
+  margin: 0.625rem;
+  text-align: center;
+}
+
+.inputs input {
+  width: 8.75rem;
+  padding: 0.313rem;
+  margin: 0.313rem auto;
+  border-radius: 0.313rem;
+  border: 0.063rem solid #4d0588;
+  background-color: #3d1f6dd0;
+  color: white;
+  text-align: center;
+}
+
 /* Rodapé */
 
 .rodape {
@@ -427,13 +515,14 @@ body {
   text-align: center;
   padding: 10px 0;
   bottom: 0;
-  width: 100%;
   box-shadow: 0 -2px 5px #6c1ee9;
+  position: fixed;
+  height: 2.5rem;
 }
 
 .github {
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 0.625rem 0.4rem 0;
   padding: auto;
 }
