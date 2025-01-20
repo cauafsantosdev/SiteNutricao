@@ -32,8 +32,6 @@ var consumoSemanal = {
 };
 
 var consumidos = new Object();
-var metas = [];
-var pct = [];
 
 let barChart = null;
 let pieChart = null;
@@ -252,12 +250,19 @@ function avancar(tabId) {
 
   document.getElementById("link-graficos").classList.add("active");
 
-  const contents = document.querySelectorAll(".tab-content");
+  var contents = document.querySelectorAll(".tab-content");
   contents.forEach((content) => content.classList.remove("active"));
+
+  contents = document.querySelectorAll(".grafico-tab-content");
+  contents.forEach((content) => content.classList.remove("active"));
+
+  document.getElementById("botoes-grafico").classList.add("active");
 
   document.getElementById(tabId).classList.add("active");
 
-  document.getElementById("botoes-grafico").classList.add("active");
+  document.getElementById("grafico-refeicao").classList.add("active");
+
+  document.getElementById("refeicao").checked = true;
 }
 
 // Trocar entre os tipos de gráficos na aba de gráficos(semanal, refeição)
@@ -467,6 +472,8 @@ function atualizaRefeicao() {
 }
 
 function salvarMetas() {
+  let metas = [];
+
   for (let c = 0; c < idsMetas.length; c++) {
     let meta = $("#" + idsMetas[c]).val();
     if (meta == "") {
@@ -475,11 +482,14 @@ function salvarMetas() {
     }
     metas.push(meta);
   }
-  calculaPct();
-  graficoMetas();
+
+  
+  graficoMetas(calculaPct(metas));
+
 }
 
-function calculaPct() {
+function calculaPct(metas) {
+  let pct = [];
   let consumo = Object.values(consumoSemanal);
 
   for (let c = 0; c < metas.length; c++) {
@@ -491,7 +501,8 @@ function calculaPct() {
     }
     pct.push(pctNutriente);
   }
-  console.log(pct);
+
+  return pct;
 }
 
 // Graficos
@@ -628,17 +639,16 @@ function updateChart() {
         },
       },
     });
-    document.getElementById("grafico-refeicao").classList.add("active");
   });
 }
 
-function graficoMetas() {
+function graficoMetas(pct) {
   let labels = [
     "Carboidratos",
     "Proteínas",
     "Gorduras",
     "Fibras",
-    "Açúcares",
+    "Açúcares", 
     "Sódio",
     "Potássio",
     "Cálcio",
@@ -647,11 +657,8 @@ function graficoMetas() {
   if (lineChart) {
     lineChart.destroy();
   }
-
-  console.log(pct);
-
+    const line_ctx = document.getElementById("grafico-metas");
   requestAnimationFrame(() => {
-    const line_ctx = document.getElementById("grafico-metas").getContext("2d");
 
     lineChart = new Chart(line_ctx, {
       type: "line",
@@ -785,8 +792,6 @@ function graficoMetas() {
     });
   });
 }
-
-document.getElementById("refeicao").checked = true;
 
 $(document).ready(function () {
   $("input[type='text']").blur(function () {

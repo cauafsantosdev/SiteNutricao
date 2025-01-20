@@ -504,6 +504,19 @@ body {
   text-align: center;
 }
 
+.grafico-semanal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2.85rem auto 1.2rem;
+}
+
+
+.grafico-semanal h2{ 
+  color: white;
+}
+
 /* Rodapé */
 
 .rodape {
