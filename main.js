@@ -8,6 +8,8 @@ var potassio = 0;
 var calcio = 0;
 
 var refeicao = [];
+var metas = [];
+var verificaMetas = false;
 
 var consumoDiario = {
   Carboidratos: 0,
@@ -345,6 +347,10 @@ function pularDia(clicado) {
     i = 0;
     zerarTabela();
     adicionarASemana();
+   
+    if(verificaMetas){
+      graficoMetas(calculaPct(metas));
+    }
 
     $("#dia").text("Refeições do dia " + (dia + 1));
   }
@@ -472,7 +478,7 @@ function atualizaRefeicao() {
 }
 
 function salvarMetas() {
-  let metas = [];
+  metas = [];
 
   for (let c = 0; c < idsMetas.length; c++) {
     let meta = $("#" + idsMetas[c]).val();
@@ -483,9 +489,10 @@ function salvarMetas() {
     metas.push(meta);
   }
 
-  
-  graficoMetas(calculaPct(metas));
-
+  if(!verificaMetas){
+    graficoMetas(calculaPct(metas));
+    verificaMetas = true;
+  }
 }
 
 function calculaPct(metas) {
