@@ -265,6 +265,8 @@ function avancar(tabId) {
   document.getElementById("grafico-refeicao").classList.add("active");
 
   document.getElementById("refeicao").checked = true;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Trocar entre os tipos de gráficos na aba de gráficos(semanal, refeição)
@@ -279,6 +281,7 @@ function mudarGrafico(chartId) {
 
 //	Voltar para a seleção de alimentos caso o usuário queira mudar a refeição
 function voltarAlimentos() {
+  
   const buttons = document.querySelectorAll(".tab-button");
   buttons.forEach((button) => button.classList.remove("active"));
 
@@ -288,6 +291,9 @@ function voltarAlimentos() {
   contents.forEach((content) => content.classList.remove("active"));
 
   document.getElementById("alimentos").classList.add("active");
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  
 }
 
 // Função para adicionar os alimentos na refeição
@@ -302,6 +308,7 @@ function adicionarRefeicao() {
 
   document.getElementById("refeicoes").classList.add("active");
 
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   mostrarRefeicao();
 }
 
@@ -372,6 +379,8 @@ function verMetas() {
   document.getElementById("graficos").classList.add("active");
   document.getElementById("grafico-meta-semanal").classList.add("active");
   document.getElementById("semanal").checked = true;
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Função para salvar a refeição
@@ -416,6 +425,8 @@ function salvarRefeicao() {
   if (i == 4) {
     pularDia(true);
   }
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Zerar a tabela de alimentos
@@ -489,10 +500,10 @@ function salvarMetas() {
     metas.push(meta);
   }
 
-  if(!verificaMetas){
-    graficoMetas(calculaPct(metas));
-    verificaMetas = true;
-  }
+
+  graficoMetas(calculaPct(metas));
+  verificaMetas = true;
+
 }
 
 function calculaPct(metas) {
